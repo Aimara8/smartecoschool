@@ -1,9 +1,15 @@
 .programs{
     margin: 80px auto;
     width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
+}
+
+.text {
+    margin-bottom: 80px; /* Espacio entre el texto y las imágenes */
+}
+
+.text p{
+    font-size: 18px;
 }
 
 .program img{
@@ -12,9 +18,19 @@
     display: block;
 }
 
+.programs-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre las imágenes */
+}
+
+
 .program{
     flex-basis: 31%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .caption{
@@ -47,7 +63,7 @@
 
 @media (max-width: 650px){
   
-    .programs{
+    .programs .programs-container{
         flex-direction: column;
     }
 

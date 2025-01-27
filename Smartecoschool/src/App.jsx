@@ -21,7 +21,7 @@ function App() {
         <About setPlayerState={setPlayerState}/>
         <Title subTitle='Testimonials' title='What students say'/>
         <Testimonials/>
-        <Title subTitle='Funcionalidades' title='What we offer'/>
+        <Title subTitle='Funcionalidades' title='¿Cómo funciona?'/>
         <Programs />
         <Title subTitle='Nosotros' title='Sobre Nosotros'/>
         <Campus/>

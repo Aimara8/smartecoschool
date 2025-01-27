@@ -24,7 +24,7 @@ const VideoPlayer = ({ playerState, setPlayerState }) => {
             className={`video-player ${playerState ? '' : 'hide'}`}
             onClick={closePlayer}
         >
-            <video ref={videoRef} src={video} autoPlay muted controls></video>
+            <video ref={videoRef} src={video} autoPlay controls></video>
         </div>
     );
 };
