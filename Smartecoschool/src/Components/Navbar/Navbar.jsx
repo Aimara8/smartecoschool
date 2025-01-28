@@ -27,7 +27,7 @@ const Navbar = () => {
                 <li><Link to='programs' smooth={true} offset={-260} duration={500}>Funcionamiento</Link></li>
                 <li><Link to='campus' smooth={true} offset={-260} duration={500}>Sobre Nosotros</Link></li>
                 <li><Link to='footer' smooth={true} offset={0} duration={500}>Redes Sociales</Link></li>
-                <li><button className='btn'>Wiki</button></li>
+                <li><a href="https://wiki.ieselrincon.es/index.php?title=SmartEcoSchool" target='_blank'><button className='btn'>Wiki</button></a></li>
             </ul>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className='menu-icon' onClick={ToggleMenu} viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
