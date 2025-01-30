@@ -1,9 +1,21 @@
 {
-    "about": {
-      "objectives": "Objectives",
-      "title": "Innovating for a Sustainable Future",
-      "description1": "We are immersed in an ambitious project that transcends lines of code and user interfaces. We aim to develop an advanced system for the efficient control of water and electricity consumption, using technology as a key pillar to promote sustainable and responsible practices.",
-      "description2": "Additionally, as part of our vision for innovation, we will incorporate elements of smart buildings, exploring home automation in a classroom. This approach will allow us not only to optimize resource use but also to create more connected, comfortable, and efficient spaces aligned with future needs.",
-      "description3": "We are convinced that technology is not just a tool, but a catalyst for generating awareness and acting responsibly towards our planet. Together, we can make a difference."
-    }
+  "navbar": {
+    "home": "Home",
+    "objectives": "Objectives",
+    "functioning": "Functioning",
+    "aboutUs": "About Us",
+    "socialMedia": "Social Media",
+    "wiki": "Wiki"
+  },
+  "hero": {
+    "title": "SmartEcoSchool",
+    "description": "Technology and Sustainability for Learning"
+  },
+  "about": {
+    "objectives": "Objectives",
+    "title": "Innovating for a Sustainable Future",
+    "description1": "We are immersed in an ambitious project that transcends lines of code and user interfaces. We aim to develop an advanced system for the efficient control of water and electricity consumption, using technology as a key pillar to promote sustainable and responsible practices.",
+    "description2": "Additionally, as part of our vision for innovation, we will incorporate elements of smart buildings, exploring home automation in a classroom. This approach will allow us not only to optimize resource use but also to create more connected, comfortable, and efficient spaces aligned with future needs.",
+    "description3": "We are convinced that technology is not just a tool, but a catalyst for generating awareness and acting responsibly towards our planet. Together, we can make a difference."
   }
+}

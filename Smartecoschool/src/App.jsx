@@ -8,6 +8,7 @@ import Campus from './Components/Campus/Campus'
 import Testimonials from './Components/Testimonials/Testimonials'
 import Footer from './Components/Footer/Footer'
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer'
+import './i18next'; // Importa la configuración de i18next
 
 function App() {
 

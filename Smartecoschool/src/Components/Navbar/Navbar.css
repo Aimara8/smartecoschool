@@ -28,6 +28,30 @@ nav ul li {
     transition: 0.5s;
 }
 
+.btn-lang {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 5px 12px;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-lang:hover {
+    background-color: #fff;
+    color: #29a021;
+}
+
+.btn-lang.active {
+    background-color: #29a021;
+    border-color: #29a021;
+    color: #fff;
+}
+
+
 /*-----Media Query-----*/
 
 @media (max-width: 1000px) {
