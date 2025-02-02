@@ -6,9 +6,16 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
+    const [selected, setSelected] = useState('es');
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
+        
+        if (selected == 'es') {
+            setSelected('en');
+        }else{
+            setSelected('es');
+        }
     };
 
     const [sticky, setSticky] = useState(false);
@@ -38,8 +45,8 @@ const Navbar = () => {
                 </a></li>
             </ul>
             <div>
-                <button onClick={() => changeLanguage('en')} className='btn-lang'>En</button>
-                <button onClick={() => changeLanguage('es')} className='btn-lang'>Es</button>
+                <button onClick={() => changeLanguage('en')} className={`btn-lang ${selected=='en'? 'en':''}`}>En</button>
+                <button onClick={() => changeLanguage('es')} className={`btn-lang ${selected=='es'? 'es': ''}`}>Es</button>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className='menu-icon' onClick={ToggleMenu} viewBox="0 0 16 16">
                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />

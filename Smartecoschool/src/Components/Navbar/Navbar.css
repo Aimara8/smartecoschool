@@ -40,15 +40,10 @@ nav ul li {
     transition: all 0.3s ease-in-out;
 }
 
-.btn-lang:hover {
+.btn-lang.es,
+.btn-lang.en {
     background-color: #fff;
     color: #29a021;
-}
-
-.btn-lang.active {
-    background-color: #29a021;
-    border-color: #29a021;
-    color: #fff;
 }
 
 
@@ -70,7 +65,7 @@ nav ul li {
     display: none;
 }
 
-@media (max-width: 956px) {
+@media (max-width: 1068px) {
 
     nav {
         padding: 15px 0;
