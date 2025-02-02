@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer'
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer'
 import './i18next'; // Importa la configuración de i18next
 import Collaborators from './Components/Collaborators/Collaborators'
+import Base_de_datos from './Components/BaseDeDatos/Base_de_datos'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       </div>
       <Footer/>
       <VideoPlayer playerState={playerState} setPlayerState={setPlayerState}/>
+      {/* <Base_de_datos/> */}
     </div>
   )
 }
