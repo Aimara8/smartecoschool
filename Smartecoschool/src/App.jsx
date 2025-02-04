@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <div className='container'>
         <About setPlayerState={setPlayerState}/>
@@ -32,8 +32,8 @@ function App() {
         <Collaborators/>
       </div>
       <Footer/>
-      <VideoPlayer playerState={playerState} setPlayerState={setPlayerState}/>
-      {/* <Base_de_datos/> */}
+      <VideoPlayer playerState={playerState} setPlayerState={setPlayerState}/> */}
+      <Base_de_datos/>
     </div>
   )
 }
