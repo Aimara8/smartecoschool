@@ -10,7 +10,7 @@ import Footer from './Components/Footer/Footer'
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer'
 import './i18next'; // Importa la configuración de i18next
 import Collaborators from './Components/Collaborators/Collaborators'
-
+import AboutUs from './Components/AboutUs/AboutUs'
 function App() {
 
   const [playerState, setPlayerState] = useState(false);
@@ -25,8 +25,8 @@ function App() {
         <Testimonials/>
         <Title subTitle='Funcionalidades' title='¿Cómo funciona?'/>
         <Programs />
-        <Title subTitle='Nosotros' title='Sobre Nosotros'/>
-        <Campus/>
+        <Title subTitle='Un poco...' title='Sobre Nosotros'/>
+        <AboutUs/>
         <Title subTitle='Nuestros aliados' title='Colaboradores y Patrocinadores'/>
         <Collaborators/>
       </div>
