@@ -29,6 +29,21 @@
     line-height: 1.4;
 }
 
+.hero-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Cambia el color según tu diseño */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el mouse */
+}
+
 /*-----Media Query-----*/
 
 @media (max-width: 850px){
