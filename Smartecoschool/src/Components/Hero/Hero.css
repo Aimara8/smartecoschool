@@ -1,4 +1,4 @@
-.hero{
+.hero {
     width: 100%;
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 50, 20, 0.7), rgba(0, 50, 20, 0.7)), url('../../assets/research.jpg');
@@ -6,65 +6,65 @@
     background-size: cover;
     background-position: center;
     color: #fff;
-
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.hero-text{
+  }
+  
+  .hero-text {
     text-align: center;
     max-width: 800px;
-}
-
-.hero-text h1{
+  }
+  
+  .hero-text h1 {
     font-size: 65px;
     font-weight: 600;
-}
-
-.hero-text p{
+  }
+  
+  .hero-text p {
     font-size: 20px;
     max-width: 700px;
     margin: 10px auto;
     line-height: 1.4;
-}
-
-.hero-button {
-    padding: 10px 20px;
-    font-size: 16px;
+  }
+  
+  .hero-button {
+    padding: 15px 30px;
+    font-size: 18px;
     color: #fff;
-    background-color: #007bff; /* Cambia el color según tu diseño */
+    background-color: #28a745; /* Verde sostenible */
     border: none;
-    border-radius: 5px;
+    border-radius: 50px; /* Bordes redondeados */
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.hero-button:hover {
-    background-color: #0056b3; /* Cambia el color al pasar el mouse */
-}
-
-/*-----Media Query-----*/
-
-@media (max-width: 850px){
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
   
-    .hero-text h1{
-        font-size: 40px
+  .hero-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+    transform: translateY(-3px); /* Efecto de elevación */
+  }
+  
+  .hero-button:active {
+    transform: translateY(0); /* Restablecer al hacer clic */
+  }
+  
+  /* Media Queries */
+  @media (max-width: 850px) {
+    .hero-text h1 {
+      font-size: 40px;
     }
-
-}
-
-@media (max-width: 850px){
-    
-      .hero-text h1{
-          font-size: 30px;
-          max-width: 400px;
-          margin: auto;
-      }
-
-      .hero-text p{
-        font-size: 14px;
-        margin: 15px auto 30px;
-      }
+  }
   
-}
+  @media (max-width: 850px) {
+    .hero-text h1 {
+      font-size: 30px;
+      max-width: 400px;
+      margin: auto;
+    }
+  
+    .hero-text p {
+      font-size: 14px;
+      margin: 15px auto 30px;
+    }
+  }
