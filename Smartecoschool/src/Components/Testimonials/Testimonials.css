@@ -1,5 +1,5 @@
 .testimonials{
-    margin: 80px auto;
+    margin: 25px auto;
     padding: 0 80px;
     position: relative;
 }
@@ -26,33 +26,44 @@
 
 .slider ul{
     display: flex;
-    width: 200%;
-    overflow-x: hidden;
+    width: 300%;
     transition: 0.5s;
 }
 
+.use-case-ul{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3em;
+    list-style: disc;
+}
+
+.use-case-ul li{
+    font-size: larger;
+    margin-top: -0.5em;
+    margin-bottom: -1.8em;
+    color: #29a021;
+}
+
+.use-case-ul span{
+    font-size: medium;
+    color: #676767;
+}
+
 .slider ul li{
-    list-style: none;
     width: 50%;
     padding: 20px;
 }
 
 .slide{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    padding: 40px;
+    padding: 30px 40px;
     border-radius: 10px;
     color: #676767;
     line-height: 1.4;
 }
 
-.slide img{
-    width: 75px;
-    border-radius: 50%;
-    margin-right: 10px;
-    border: 4px solid #29a021;
-}
-
 .user-info{
+    text-align: center;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -60,6 +71,8 @@
 }
 
 .user-info h3{
+    font-size: 1.7em;
+    margin: auto;
     color: #29a021;
 }
 /*-----Media Query-----*/
@@ -80,16 +93,61 @@
     }
 
     .slide{
-        padding: 10px;
+        padding: 30px 40px;
     }
 
-    .slide img{
-        width: 50%;
-        border: 3px solid #29a021;
+    .slider{
+    }
+
+    .slider p{
+        font-size: 15px;
+    }
+
+    .slider ul{
+        width: 300%;
+    }
+
+    .use-case-ul{
+        display: flex;
+        list-style: disc;
+    }
+    
+    .use-case-ul li{
+        font-size: larger;
+        margin-top: -0.5em;
+        margin-bottom: -1.8em;
+        color: #29a021;
+    }
+    
+    .use-case-ul span{
+        font-size: 0.75em;
+        color: #676767;
+    }
+
+    .slider ul{
+        width: 320%;
+        margin-right: 2em;
+    }
+    
+    .slider ul li{
+        width: 33%;
+        padding: 10px;
+        margin-right: 2em;
+        margin-bottom: 2px;
+    }
+
+    .user-info h3{
+        font-size: 1.5em;
+        margin: auto;
+        color: #29a021;
     }
 
 }
-@media (max-width: 600px){
+@media (max-width: 660px){
+
+    .slide{
+        padding: 50px 40px;
+    }
 
     .user-info{
         display: block;
@@ -98,11 +156,44 @@
     }
 
     .user-info h3{
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .slider p{
-        font-size: 12px;
+        font-size: 15px;
     }
 
+    .use-case-ul{
+        display: flex;
+        list-style: disc;
+    }
+    
+    .use-case-ul li{
+        font-size: larger;
+        margin-top: -0.5em;
+        margin-bottom: -1.8em;
+        color: #29a021;
+    }
+    
+    .use-case-ul span{
+        font-size: 0.7em;
+        color: #676767;
+    }
+
+    .slider ul{
+        margin-right: 1em;
+    }
+    
+    .slider ul li{
+        width: 33%;
+        padding: 10px;
+        margin-right: 2em;
+        margin-bottom: 2px;
+    }
+
+    .user-info h3{
+        font-size: 1.5em;
+        margin: auto;
+        color: #29a021;
+    }
 }

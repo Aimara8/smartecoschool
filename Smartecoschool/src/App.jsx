@@ -21,7 +21,7 @@ function App() {
       <Hero />
       <div className='container'>
         <About setPlayerState={setPlayerState}/>
-        <Title subTitle='Testimonials' title='What students say'/>
+        <Title subTitle='Aplicaciones en entornos reales' title='Casos de Uso'/>
         <Testimonials/>
         <Title subTitle='Funcionalidades' title='¿Cómo funciona?'/>
         <Programs />
