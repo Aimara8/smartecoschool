@@ -1,80 +1,89 @@
-import { useEffect, useState, useCallback } from "react"
-import axios from "axios"
-import { Chart, registerables } from "chart.js"
-import "./Base_de_datos.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLightbulb, faTint } from "@fortawesome/free-solid-svg-icons"
+import { useEffect, useState, useCallback } from "react";
+import axios from "axios";
+import { Chart, registerables } from "chart.js";
+import "./Base_de_datos.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb, faTint } from "@fortawesome/free-solid-svg-icons";
 
-Chart.register(...registerables)
+Chart.register(...registerables);
 
 const Base_de_datos = () => {
-  const [luzData, setLuzData] = useState({ labels: [], consumo: [] })
-  const [aguaData, setAguaData] = useState({ labels: [], consumo: [] })
-  const [luzChart, setLuzChart] = useState(null)
-  const [aguaChart, setAguaChart] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [luzData, setLuzData] = useState({ labels: [], consumo: [] });
+  const [aguaData, setAguaData] = useState({ labels: [], consumo: [] });
+  const [luzChart, setLuzChart] = useState(null);
+  const [aguaChart, setAguaChart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Función mejorada para procesar los datos diarios
+  // Función para procesar los datos diarios
   const procesarDatosDiarios = useCallback((data) => {
-    const datosPorDia = {}
+    const datosPorDia = {};
 
-    // Agrupar los datos por día
+    // Agrupar los datos por día y seleccionar el último registro del día
     data.forEach((item) => {
-      const fecha = new Date(item.fecha)
-      const dia = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`
+      const fecha = new Date(item.fecha);
+      const dia = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
 
-      if (!datosPorDia[dia]) {
-        datosPorDia[dia] = {
-          consumoInicial: Number.parseFloat(item.consumo),
-          consumoFinal: Number.parseFloat(item.consumo),
-          lecturas: [Number.parseFloat(item.consumo)],
+      // Si ya existe un registro para este día, comparamos las horas
+      if (datosPorDia[dia]) {
+        const fechaExistente = new Date(datosPorDia[dia].fecha);
+        if (fecha > fechaExistente) {
+          datosPorDia[dia] = { fecha: item.fecha, consumo: Number.parseFloat(item.consumo) };
         }
       } else {
-        datosPorDia[dia].consumoFinal = Number.parseFloat(item.consumo)
-        datosPorDia[dia].lecturas.push(Number.parseFloat(item.consumo))
+        // Si no existe, lo agregamos
+        datosPorDia[dia] = { fecha: item.fecha, consumo: Number.parseFloat(item.consumo) };
       }
-    })
+    });
 
-    // Calcular el consumo diario
+    // Convertir el objeto a un array y ordenarlo por fecha
     const datosDiarios = Object.keys(datosPorDia)
       .map((dia) => ({
         fecha: dia,
-        consumoDiario: datosPorDia[dia].consumoFinal - datosPorDia[dia].consumoInicial,
-        lecturas: datosPorDia[dia].lecturas,
+        consumo: datosPorDia[dia].consumo,
       }))
-      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+    // Calcular el consumo diario
+    const consumoDiario = datosDiarios.map((item, index) => {
+      if (index === 0) {
+        return { fecha: item.fecha, consumoDiario: 0 }; // El primer día no tiene consumo diario
+      } else {
+        const consumoAnterior = datosDiarios[index - 1].consumo;
+        return { fecha: item.fecha, consumoDiario: item.consumo - consumoAnterior };
+      }
+    });
 
     return {
-      labels: datosDiarios.map((item) => item.fecha),
-      consumo: datosDiarios.map((item) => item.consumoDiario),
-    }
-  }, [])
+      labels: consumoDiario.map((item) => item.fecha),
+      consumo: consumoDiario.map((item) => item.consumoDiario),
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
-      setError(null) // Reiniciar el estado de error
+      setIsLoading(true);
+      setError(null); // Reiniciar el estado de error
       try {
         // Obtener datos de luz
-        const luzResponse = await axios.get("http://192.168.100.20:8888/api/medidas/1")
-        const luzDatosProcesados = procesarDatosDiarios(luzResponse.data)
-        setLuzData(luzDatosProcesados)
+        const luzResponse = await axios.get("http://2.139.196.172:8888/api/medidas/1");
+        const luzDatosProcesados = procesarDatosDiarios(luzResponse.data);
+        setLuzData(luzDatosProcesados);
 
         // Obtener datos de agua
-        const aguaResponse = await axios.get("http://192.168.100.20:8888/api/medidas/2")
-        const aguaDatosProcesados = procesarDatosDiarios(aguaResponse.data)
-        setAguaData(aguaDatosProcesados)
+        const aguaResponse = await axios.get("http://2.139.196.172:8888/api/medidas/2");
+        const aguaDatosProcesados = procesarDatosDiarios(aguaResponse.data);
+        setAguaData(aguaDatosProcesados);
       } catch (error) {
-        setError("Error al cargar los datos. Intenta nuevamente más tarde.")
-        console.error("Error al obtener los datos:", error)
+        setError("Error al cargar los datos. Intenta nuevamente más tarde.");
+        console.error("Error al obtener los datos:", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [procesarDatosDiarios])
+    fetchData();
+  }, [procesarDatosDiarios]);
 
   const createChart = (ctx, labels, data, chartLabel, borderColor, backgroundColor) => {
     return new Chart(ctx, {
@@ -159,44 +168,58 @@ const Base_de_datos = () => {
           },
         },
       },
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     if (!isLoading && luzData.labels.length > 0 && aguaData.labels.length > 0) {
-      const ctxLuz = document.getElementById("luzChart")?.getContext("2d")
-      const ctxAgua = document.getElementById("aguaChart")?.getContext("2d")
+      const ctxLuz = document.getElementById("luzChart")?.getContext("2d");
+      const ctxAgua = document.getElementById("aguaChart")?.getContext("2d");
 
       if (ctxLuz && ctxAgua) {
         // Crear o actualizar el gráfico de Luz
         if (luzChart) {
-          luzChart.data.labels = luzData.labels
-          luzChart.data.datasets[0].data = luzData.consumo
-          luzChart.update()
+          luzChart.data.labels = luzData.labels;
+          luzChart.data.datasets[0].data = luzData.consumo;
+          luzChart.update();
         } else {
-          const newLuzChart = createChart(ctxLuz, luzData.labels, luzData.consumo, "Consumo de Luz (kWh)", "rgba(75, 192, 192, 1)", "rgba(75, 192, 192, 0.2)")
-          setLuzChart(newLuzChart)
+          const newLuzChart = createChart(
+            ctxLuz,
+            luzData.labels,
+            luzData.consumo,
+            "Consumo de Luz (kWh)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(75, 192, 192, 0.2)"
+          );
+          setLuzChart(newLuzChart);
         }
 
         // Crear o actualizar el gráfico de Agua
         if (aguaChart) {
-          aguaChart.data.labels = aguaData.labels
-          aguaChart.data.datasets[0].data = aguaData.consumo
-          aguaChart.update()
+          aguaChart.data.labels = aguaData.labels;
+          aguaChart.data.datasets[0].data = aguaData.consumo;
+          aguaChart.update();
         } else {
-          const newAguaChart = createChart(ctxAgua, aguaData.labels, aguaData.consumo, "Consumo de Agua (m³)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 0.2)")
-          setAguaChart(newAguaChart)
+          const newAguaChart = createChart(
+            ctxAgua,
+            aguaData.labels,
+            aguaData.consumo,
+            "Consumo de Agua (m³)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(54, 162, 235, 0.2)"
+          );
+          setAguaChart(newAguaChart);
         }
       }
     }
-  }, [luzData, aguaData, isLoading, luzChart, aguaChart])
+  }, [luzData, aguaData, isLoading, luzChart, aguaChart]);
 
   if (isLoading) {
-    return <div>Cargando datos...</div>
+    return <div>Cargando datos...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>
+    return <div>{error}</div>;
   }
 
   return (
@@ -223,7 +246,7 @@ const Base_de_datos = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Base_de_datos
+export default Base_de_datos;
