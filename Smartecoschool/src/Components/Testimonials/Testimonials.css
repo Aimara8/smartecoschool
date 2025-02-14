@@ -30,23 +30,34 @@
     transition: 0.5s;
 }
 
-.use-case-ul{
+.use-case-ul {
     display: flex;
-    flex-direction: column;
-    margin-left: 3em;
+    flex-direction: column; /* Mantiene la columna */
+    padding-left: 0; /* Elimina el sangrado izquierdo por defecto */
+    list-style-position: inside; /* Hace que los bullets se alineen con el texto */
+    text-align: justify; /* Justifica el texto */
+    margin-left: 5px; /* Ajusta el margen para alinearlo con el párrafo */
+    max-width: 200%; /* Controla el ancho máximo para que coincida con el texto */
+    align-self: flex-start; /* Asegura alineación con el texto */
+    width: auto; /* Permite que se ajuste dinámicamente */
     list-style: disc;
 }
 
-.use-case-ul li{
+
+.use-case-ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el contenido */
+    width: 100%;
+    padding: 10px 0;
     font-size: larger;
-    margin-top: -0.5em;
-    margin-bottom: -1.8em;
     color: #29a021;
 }
 
-.use-case-ul span{
+.use-case-ul span {
+    flex: 1; /* Hace que el contenido de la lista ocupe el espacio restante */
     font-size: medium;
-    color: #676767;
+    color: black;
 }
 
 .slider ul li{
@@ -58,7 +69,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     padding: 30px 40px;
     border-radius: 10px;
-    color: #676767;
+    color: black;
     line-height: 1.4;
 }
 
@@ -75,125 +86,108 @@
     margin: auto;
     color: #29a021;
 }
+
 /*-----Media Query-----*/
 
-@media (max-width: 800px){
-  
-    .testimonials{
-        padding: 0 40px;
-    }
-
-    .next-btn,  .back-btn{
-        padding:  10px;
+/* Para pantallas menores a 800px */
+@media (max-width: 800px) {
+    .next-btn, .back-btn {
+        padding: 10px;
         width: 45px;
     }
 
-    .testimonials ul li{
-        padding: 10px;
-    }
-
-    .slide{
-        padding: 30px 40px;
-    }
-
-    .slider{
-    }
-
-    .slider p{
-        font-size: 15px;
-    }
-
-    .slider ul{
-        width: 300%;
-    }
-
-    .use-case-ul{
-        display: flex;
-        list-style: disc;
-    }
-    
-    .use-case-ul li{
-        font-size: larger;
-        margin-top: -0.5em;
-        margin-bottom: -1.8em;
-        color: #29a021;
-    }
-    
-    .use-case-ul span{
-        font-size: 0.75em;
-        color: #676767;
-    }
-
-    .slider ul{
-        width: 320%;
-        margin-right: 2em;
-    }
-    
-    .slider ul li{
-        width: 33%;
-        padding: 10px;
-        margin-right: 2em;
-        margin-bottom: 2px;
-    }
-
-    .user-info h3{
-        font-size: 1.5em;
+    .testimonials ul li {
         margin: auto;
+        padding: 10px;
+    }
+
+    .slide {
+        padding: 20px;
+    }
+
+    .slider p {
+        font-size: 14px;
+    }
+
+    .use-case-ul {
+        width: 100%; /* Cambiar a 100% para que ocupe todo el espacio disponible */
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    .use-case-ul li {
+        font-size: 1em;
+        margin: 0.3em 0;
         color: #29a021;
     }
 
-}
-@media (max-width: 660px){
-
-    .slide{
-        padding: 50px 40px;
+    .use-case-ul span {
+        font-size: 0.85em;
+        color: black;
     }
 
-    .user-info{
-        display: block;
-        margin-bottom: 10px;
+    .slider ul {
+        display: flex; /* Usar flex para que los items se acomoden correctamente */
+        width: 300%; /* Asegura que el contenedor no se desborde */
+        margin-right: 0;
+        padding: 0;
+        justify-content: space-between; /* Asegura que los items se distribuyan bien */
+    }
+
+    .slider ul li {
+        width: 32%; /* Ajuste de tamaño para que se acomoden mejor */
+        padding: 10px;
+        margin-right: 0;
+    }
+
+    .user-info h3 {
+        font-size: 1.4em;
+    }
+}
+
+/* Para pantallas menores a 660px */
+@media (max-width: 660px) {
+    .slide {
+        padding: 20px;
+    }
+
+    .user-info {
+        text-align: center;
         font-size: 12px;
     }
 
-    .user-info h3{
-        font-size: 20px;
+    .user-info h3 {
+        font-size: 18px;
     }
 
-    .slider p{
-        font-size: 15px;
+    .slider p {
+        font-size: 13px;
     }
 
-    .use-case-ul{
-        display: flex;
-        list-style: disc;
-    }
-    
-    .use-case-ul li{
-        font-size: larger;
-        margin-top: -0.5em;
-        margin-bottom: -1.8em;
-        color: #29a021;
-    }
-    
-    .use-case-ul span{
-        font-size: 0.7em;
-        color: #676767;
+    .use-case-ul {
+        display: flex; /* Se mantiene visible */
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
     }
 
-    .slider ul{
-        margin-right: 1em;
+    .use-case-ul li {
+        font-size: 0.9em;
+        margin-left: 0;
     }
-    
-    .slider ul li{
-        width: 33%;
+
+    .use-case-ul span {
+        font-size: 0.75em;
+    }
+
+    .slider ul {
+        display: flex; /* Flex para que los items no se desborden */
+        width: 100%; /* Asegura que el contenedor se ajuste correctamente */
+    }
+
+    .slider ul li {
+        width: 100%; /* Hace que cada item ocupe el 100% del ancho disponible */
         padding: 10px;
-        margin-right: 2em;
-        margin-bottom: 2px;
-    }
-
-    .user-info h3{
-        font-size: 1.5em;
-        margin: auto;
-        color: #29a021;
+        margin-right: 0;
     }
 }
