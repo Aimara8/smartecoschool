@@ -38,13 +38,13 @@ const AboutUs = () => {
             <div className="prop">
                 <div className="circle"></div>
                 <img src={iconComputer} alt="Icono de escritorio" className="icon-prop-list"/>
-                <span>Tecnologias y aplicaciones de ultima generacion</span>
+                <span className="prop-text">Tecnologias y aplicaciones de ultima generacion</span>
             </div>
 
             <div className="prop">
                 <div className="circle"></div>
                 <img src={iconManos} alt="Icono de escritorio" className="icon-prop-list"/>
-                <span>Compromiso y conciencia con el medioambiente</span>
+                <span className="prop-text">Compromiso y conciencia con el medioambiente</span>
             </div>
         </div>
         <hr id="separador"/>

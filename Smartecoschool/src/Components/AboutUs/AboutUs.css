@@ -233,6 +233,7 @@
     .about-container {
         height: auto;
         margin-bottom: 50px;
+        padding-top: 0;
     }
 
     .left-column img {
@@ -251,8 +252,8 @@
     }
     
     .left-column .circle-img {
-        bottom: -10px;
-        left: 100px;
+        top:560px;
+        left: 80px;
     }
 
     .right-column {
@@ -271,9 +272,13 @@
         font-size: 16px;
     }
 
+    .right-column #subtitle-text {
+        font-size: 22px;
+    }
+
     .right-column .props-list {
         flex-direction: column;
-        gap: 20px;
+        gap: 35px;
     }
 
     .right-column .prop {
@@ -281,9 +286,13 @@
     }
 
     .right-column .prop .circle{
-        gap: 5px;
         height: 40px;
         width: 40px;
+    }
+
+    .right-column .prop .prop-text{
+        gap: 5px;
+        font-size: 18px;
     }
 
     .right-column .icon-prop-list{
@@ -318,11 +327,15 @@
     }
 
     .right-column .props-list {
-        gap: 10px;
+        gap: 30px;
     }
 
     .right-column .prop {
-        gap: 5px;
+        gap: 10px;
+    }
+
+    .right-column .prop .props-text {
+        font-size: 20px;
     }
 
     #btn-right-column {
