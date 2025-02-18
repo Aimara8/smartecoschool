@@ -25,13 +25,12 @@ function App() {
               <Navbar />
               <Hero />
               <div className='container'>
-                <About setPlayerState={setPlayerState} />
                 <Title subTitle='Testimonials' title='What students say' />
                 <Testimonials />
                 <Title subTitle='Funcionalidades' title='¿Cómo funciona?' />
                 <Programs />
                 <Title subTitle='Nosotros' title='Sobre Nosotros' />
-                <Campus />
+                <AboutUs setPlayerState={setPlayerState} />
                 <Title subTitle='Nuestros aliados' title='Colaboradores y Patrocinadores' />
                 <Collaborators />
               </div>

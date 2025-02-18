@@ -1,9 +1,8 @@
 .about-container {
     display: flex;
     width: 100%;
-    height: 800px;
+    height: 700px;
     padding-top: 50px;
-    margin-bottom: 100px;
 }
 
 /*Left column*/
@@ -50,7 +49,7 @@
     height: 180px;
     border-radius: 100px;
     position: absolute;
-    bottom: 160px;
+    bottom: 60px;
     left:260px;
     z-index: -10;
 }
@@ -224,10 +223,11 @@
     }
 
     #btn-right-column {
-        width: 100%;
+        width: 200px;
         font-size: 18px;
         padding: 12px 0;
     }
+
 }
 
 @media (max-width: 1450px) {
