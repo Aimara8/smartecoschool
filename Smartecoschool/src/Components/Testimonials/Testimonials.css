@@ -1,6 +1,6 @@
 .testimonials{
-    margin: 80px auto;
-    padding: 0 80px;
+    margin: 25px auto;
+    padding: 0 4em 0 4em;
     position: relative;
 }
 
@@ -26,33 +26,55 @@
 
 .slider ul{
     display: flex;
-    width: 200%;
-    overflow-x: hidden;
+    width: 300%;
     transition: 0.5s;
 }
 
-.slider ul li{
+.dot{
     list-style: none;
+}
+
+#use-case-ul {
+    display: flex;
+    flex-direction: column;
+    max-width: 200%;
+    list-style: disc;
+    color: #29a021;
+}
+
+
+.use-case-ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 0;
+    font-size: larger;
+}
+
+
+#use-case-ul span {
+    flex: 1;
+    width: 100%;
+    font-size: medium;
+    color: black;
+}
+
+.slider ul li{
     width: 50%;
     padding: 20px;
 }
 
 .slide{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    padding: 40px;
+    padding: 30px 40px;
     border-radius: 10px;
-    color: #676767;
+    color: black;
     line-height: 1.4;
 }
 
-.slide img{
-    width: 75px;
-    border-radius: 50%;
-    margin-right: 10px;
-    border: 4px solid #29a021;
-}
-
 .user-info{
+    text-align: center;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -60,49 +82,135 @@
 }
 
 .user-info h3{
+    font-size: 1.7em;
+    margin: auto;
     color: #29a021;
 }
+
 /*-----Media Query-----*/
 
-@media (max-width: 800px){
-  
-    .testimonials{
-        padding: 0 40px;
-    }
-
-    .next-btn,  .back-btn{
-        padding:  10px;
+/* Para pantallas menores a 800px */
+@media (max-width: 800px) {
+    .next-btn, .back-btn {
+        padding: 10px;
         width: 45px;
     }
 
+    .testimonials{
+        padding: 0 6em 0 4em;
+    }
+
+    .testimonials ul li {
+        margin: auto;
+    }
+
+    .slide {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slider{
+        margin: auto;
+        width: 105%;
+    }
+
+    .slider p {
+        font-size: 14px;
+    }
+
+    #use-case-ul {
+        width: 300%;
+    }
+
     .testimonials ul li{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: medium;
+        color: #29a021;
+        margin-left: 0;
+    }
+
+    #use-case-ul span {
+        width: 100%;
+        font-size: 0.85em;
+        color: black;
+    }
+
+    .slider ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .slider ul li {
+        width: 32%; /* Ajuste de tamaño para que se acomoden mejor */
         padding: 10px;
+        margin-right: 0;
     }
 
-    .slide{
-        padding: 10px;
+    .user-info h3 {
+        font-size: 1.4em;
     }
-
-    .slide img{
-        width: 50%;
-        border: 3px solid #29a021;
-    }
-
 }
-@media (max-width: 600px){
 
-    .user-info{
-        display: block;
-        margin-bottom: 10px;
+/* Para pantallas menores a 660px */
+@media (max-width: 660px) {
+    .testimonials{
+        padding: 0 4em 0 4em;
+    }
+    
+    .slide {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .user-info {
+        text-align: center;
         font-size: 12px;
     }
 
-    .user-info h3{
-        font-size: 16px;
+    .user-info h3 {
+        font-size: 18px;
     }
 
-    .slider p{
-        font-size: 12px;
+    .slider{
+        width: 100%;
     }
 
+    .slider p {
+        font-size: 13px;
+    }
+
+    #use-case-ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .use-case-ul li {
+        font-size: 0.9em;
+        margin-left: 0;
+    }
+
+    #use-case-ul span {
+        font-size: 0.75em;
+    }
+
+    .slider ul {
+        display: flex; /* Flex para que los items no se desborden */
+        width: 300%; /* Asegura que el contenedor se ajuste correctamente */
+    }
+
+    .slider ul li {
+        width: 100%; /* Hace que cada item ocupe el 100% del ancho disponible */
+        padding: 10px;
+        margin-right: 0;
+    }
 }
