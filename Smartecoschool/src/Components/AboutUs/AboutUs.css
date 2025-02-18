@@ -128,6 +128,7 @@
     align-items: center;
     gap: 10px;
     position: relative;
+    font-size: 18px;
 }
 
 .right-column .prop .circle{
@@ -219,7 +220,7 @@
     }
 
     .right-column .prop {
-        gap: 5px;
+        gap: 15px;
     }
 
     #btn-right-column {
