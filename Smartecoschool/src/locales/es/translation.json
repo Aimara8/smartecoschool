@@ -19,6 +19,39 @@
     "description2": "Además, como parte de nuestra visión de innovación, incorporaremos elementos de edificios inteligentes, explorando la domotización en un aula. Este enfoque nos permitirá no solo optimizar el uso de recursos, sino también crear espacios más conectados, cómodos y eficientes, alineados con las necesidades del futuro.",
     "description3": "Estamos convencidos de que la tecnología no es solo una herramienta, sino un catalizador para generar conciencia y actuar de manera responsable hacia nuestro planeta. Juntos, podemos marcar la diferencia."
   },
+    "functions": [
+      {
+        "name": "Raspberry Pi",
+        "description": "El cerebro del sistema. Recopila y analiza datos de consumo, generando informes en tiempo real para optimizar el uso de recursos.",
+        "detail": "Es un microordenador compacto y de bajo consumo, ideal para proyectos de automatización, monitoreo y aprendizaje de programación."
+      },
+      {
+        "name": "Cámara",
+        "description": "Captura imágenes de los contadores, permitiendo un seguimiento preciso del consumo.",
+        "detail": "Sensor de 5MP, 1080P, compatible con Raspberry Pi, con visión nocturna y lente ojo de pez de gran angular."
+      },
+      {
+        "name": "Monitores",
+        "description": "Muestran datos en tiempo real para fomentar conciencia y promover prácticas responsables.",
+        "detail": "Monitores de 24\" con HDMI, VGA y DisplayPort, diseñados para bajo consumo energético y alta durabilidad."
+      },
+      {
+        "name": "Sensor de Caudal",
+        "description": "Mide la cantidad de agua que pasa a través de él con un rotor interno.",
+        "detail": "Mide el flujo de líquidos con un rotor interno que genera pulsos proporcionales al caudal."
+      },
+      {
+        "name": "Sensor de Corriente",
+        "description": "Permite medir corriente alterna sin contacto directo con el circuito.",
+        "detail": "Mide corriente alterna sin contacto directo, ideal para monitoreo energético y control de consumo eléctrico."
+      },
+      {
+        "name": "Módulo",
+        "description": "Diseñado para trabajar con Raspberry Pi, midiendo corriente y temperatura.",
+        "detail": "Permite registrar valores de corriente y temperatura en tiempo real, ideal para gestión energética."
+      }
+    ]
+  ,
   "us": {
     "title": "¡Bienvenido a nuestro espacio digital!",
     "parragraph": "Somos un grupo de estudiantes del Ciclo Superior de Desarrollo de Aplicaciones Multiplataforma, unidos por la determinación de hacer la diferencia. En el corazón de nuestro trabajo se encuentra un proyecto innovador que refleja nuestras habilidades técnicas y nuestra dedicación a crear un impacto positivo en el mundo que nos rodea. En nuestro grupo, no solo trabajamos juntos, sino que creamos un ambiente donde la colaboración florece. Con cada paso que damos, miramos hacia un futuro lleno de posibilidades. Sabemos que los desafíos son inevitables, pero estamos listos para enfrentarlos con determinación.",
