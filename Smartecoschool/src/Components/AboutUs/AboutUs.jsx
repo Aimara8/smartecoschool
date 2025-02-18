@@ -4,7 +4,9 @@ import aboutImg1 from "../../assets/trabajando2.webp";
 import aboutImg2 from "../../assets/trabajando1.webp"; 
 import iconComputer from "../../assets/icon-escritorio.png"; 
 import iconManos from "../../assets/icon-manos.png";
+import { useTranslation } from 'react-i18next';
 const AboutUs = () => {
+    const { t } = useTranslation();
   return (
     <section className="about-container">
       {/* Columna izquierda con dos imágenes */}

@@ -18,5 +18,12 @@
     "description1": "Estamos inmersos en un proyecto ambicioso que trasciende las líneas de código y las interfaces de usuario. Nos hemos propuesto desarrollar un sistema avanzado para el control eficiente del consumo de agua y luz, utilizando la tecnología como un pilar clave para fomentar prácticas sostenibles y responsables.",
     "description2": "Además, como parte de nuestra visión de innovación, incorporaremos elementos de edificios inteligentes, explorando la domotización en un aula. Este enfoque nos permitirá no solo optimizar el uso de recursos, sino también crear espacios más conectados, cómodos y eficientes, alineados con las necesidades del futuro.",
     "description3": "Estamos convencidos de que la tecnología no es solo una herramienta, sino un catalizador para generar conciencia y actuar de manera responsable hacia nuestro planeta. Juntos, podemos marcar la diferencia."
+  },
+  "us": {
+    "title": "¡Bienvenido a nuestro espacio digital!",
+    "parragraph": "Somos un grupo de estudiantes del Ciclo Superior de Desarrollo de Aplicaciones Multiplataforma, unidos por la determinación de hacer la diferencia. En el corazón de nuestro trabajo se encuentra un proyecto innovador que refleja nuestras habilidades técnicas y nuestra dedicación a crear un impacto positivo en el mundo que nos rodea. En nuestro grupo, no solo trabajamos juntos, sino que creamos un ambiente donde la colaboración florece. Con cada paso que damos, miramos hacia un futuro lleno de posibilidades. Sabemos que los desafíos son inevitables, pero estamos listos para enfrentarlos con determinación.",
+    "text": "Gracias por ser parte de este viaje con nosotros.",
+    "small-text": "Tecnologías y aplicaciones de última generación",
+    "small-text2": "Compromiso y conciencia con el medioambiente"
   }
 }
