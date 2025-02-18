@@ -1,6 +1,6 @@
 .testimonials{
     margin: 25px auto;
-    padding: 0 80px;
+    padding: 0 4em 0 4em;
     position: relative;
 }
 
@@ -30,32 +30,32 @@
     transition: 0.5s;
 }
 
-.use-case-ul {
+.dot{
+    list-style: none;
+}
+
+#use-case-ul {
     display: flex;
-    flex-direction: column; /* Mantiene la columna */
-    padding-left: 0; /* Elimina el sangrado izquierdo por defecto */
-    list-style-position: inside; /* Hace que los bullets se alineen con el texto */
-    text-align: justify; /* Justifica el texto */
-    margin-left: 5px; /* Ajusta el margen para alinearlo con el párrafo */
-    max-width: 200%; /* Controla el ancho máximo para que coincida con el texto */
-    align-self: flex-start; /* Asegura alineación con el texto */
-    width: auto; /* Permite que se ajuste dinámicamente */
+    flex-direction: column;
+    max-width: 200%;
     list-style: disc;
+    color: #29a021;
 }
 
 
 .use-case-ul li {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuye el contenido */
+    justify-content: flex-start;
     width: 100%;
     padding: 10px 0;
     font-size: larger;
-    color: #29a021;
 }
 
-.use-case-ul span {
-    flex: 1; /* Hace que el contenido de la lista ocupe el espacio restante */
+
+#use-case-ul span {
+    flex: 1;
+    width: 100%;
     font-size: medium;
     color: black;
 }
@@ -96,42 +96,54 @@
         width: 45px;
     }
 
+    .testimonials{
+        padding: 0 6em 0 4em;
+    }
+
     .testimonials ul li {
         margin: auto;
-        padding: 10px;
     }
 
     .slide {
-        padding: 20px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slider{
+        margin: auto;
+        width: 105%;
     }
 
     .slider p {
         font-size: 14px;
     }
 
-    .use-case-ul {
-        width: 100%; /* Cambiar a 100% para que ocupe todo el espacio disponible */
-        padding: 0;
-        list-style-position: inside;
+    #use-case-ul {
+        width: 300%;
     }
 
-    .use-case-ul li {
-        font-size: 1em;
-        margin: 0.3em 0;
+    .testimonials ul li{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: medium;
         color: #29a021;
+        margin-left: 0;
     }
 
-    .use-case-ul span {
+    #use-case-ul span {
+        width: 100%;
         font-size: 0.85em;
         color: black;
     }
 
     .slider ul {
-        display: flex; /* Usar flex para que los items se acomoden correctamente */
-        width: 300%; /* Asegura que el contenedor no se desborde */
-        margin-right: 0;
-        padding: 0;
-        justify-content: space-between; /* Asegura que los items se distribuyan bien */
+        display: flex;
+        justify-content: space-between;
     }
 
     .slider ul li {
@@ -147,10 +159,17 @@
 
 /* Para pantallas menores a 660px */
 @media (max-width: 660px) {
-    .slide {
-        padding: 20px;
+    .testimonials{
+        padding: 0 4em 0 4em;
     }
-
+    
+    .slide {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
     .user-info {
         text-align: center;
         font-size: 12px;
@@ -160,12 +179,16 @@
         font-size: 18px;
     }
 
+    .slider{
+        width: 100%;
+    }
+
     .slider p {
         font-size: 13px;
     }
 
-    .use-case-ul {
-        display: flex; /* Se mantiene visible */
+    #use-case-ul {
+        display: none;
         flex-direction: column;
         width: 100%;
         padding: 0;
@@ -176,13 +199,13 @@
         margin-left: 0;
     }
 
-    .use-case-ul span {
+    #use-case-ul span {
         font-size: 0.75em;
     }
 
     .slider ul {
         display: flex; /* Flex para que los items no se desborden */
-        width: 100%; /* Asegura que el contenedor se ajuste correctamente */
+        width: 300%; /* Asegura que el contenedor se ajuste correctamente */
     }
 
     .slider ul li {
