@@ -1,6 +1,5 @@
 nav {
     width: 100%;
-    /*background-color: #333;*/
     color: #fff;
     padding: 4px 0;
     position: fixed;
@@ -46,32 +45,42 @@ nav ul li {
     color: #29a021;
 }
 
+/* Estilos para los botones de idioma en móvil */
+.show-lang-buttons {
+    display: flex;
+    position: fixed;
+    top: 650px;
+    right: 40px;
+    opacity: 1;
+    /* Asegúrate de que la opacidad sea 1 cuando se muestre */
+    visibility: visible;
+    /* Asegúrate de que sea visible */
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    /* Añade transiciones para opacidad y visibilidad */
+}
 
 /*-----Media Query-----*/
 
 @media (max-width: 1000px) {
-
     .logo {
-        width: 60px;
+        width: 50px;
     }
 
     nav ul li {
         margin: 10px 15px;
     }
-
 }
 
-.menu-icon{
+.menu-icon {
     display: none;
 }
 
 @media (max-width: 1068px) {
-
     nav {
         padding: 15px 0;
     }
 
-    nav ul{
+    nav ul {
         position: fixed;
         top: 0;
         right: 0;
@@ -88,14 +97,26 @@ nav ul li {
         margin: 25px 40px;
     }
 
-    .menu-icon{
+    .menu-icon {
         display: block;
         width: 30px;
         cursor: pointer;
     }
 
-    .hide-mobile-menu{
+    .hide-lang-buttons {
+        position: fixed;
+        top: 650px;
         right: -200px;
+        /* Mantén la posición fuera de la vista */
+        opacity: 0;
+        /* Asegúrate de que la opacidad sea 0 cuando se oculte */
+        visibility: hidden;
+        /* Asegúrate de que no sea visible */
+        transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+        /* Añade transiciones para opacidad y visibilidad */
     }
 
+    .hide-mobile-menu {
+        right: -200px;
+    }
 }

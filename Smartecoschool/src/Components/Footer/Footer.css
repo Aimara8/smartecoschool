@@ -1,143 +1,174 @@
 .footer {
-    width: 100%;
-    padding: 20px 0;
-    background: linear-gradient(to right, #21a029, #1a7e2b, #0d4516);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(to right, #21a029, #1a7e2b, #0d4516);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  /* Añade esto */
 }
-  
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-/* From Uiverse.io by wilsondesouza */ 
-ul {
-    list-style: none;
-  }
-  
-  .example-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 5px;
-  }
-  .example-2 .icon-content {
-    margin: 0 10px;
-    position: relative;
-    padding: 0.5rem;
-  }
-  .example-2 .icon-content .tooltip {
-    text-align: center;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    transform: translateY(50%);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  .example-2 .icon-content:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    top: -50px;
-  }
-  .example-2 .icon-content a {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #4d4d4d;
-    background-color: #fff;
-    transition: all 0.3s ease-in-out;
-  }
-  .example-2 .icon-content a:hover {
-    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
-  }
-  .example-2 .icon-content a svg {
-    position: relative;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
-  }
-  .example-2 .icon-content a:hover {
-    color: white;
-  }
-  .example-2 .icon-content a .filled {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #000;
-    transition: all 0.3s ease-in-out;
-  }
-  .example-2 .icon-content a:hover .filled {
-    height: 100%;
-  }
-  
-  .example-2 .icon-content a[data-social="tiktok"] .filled,
-  .example-2 .icon-content a[data-social="tiktok"] ~ .tooltip {
-    background: linear-gradient(
-    45deg,
-    #0077FF, /* Azul brillante */
-    #005BBB, /* Azul intenso */
-    #FF003C, /* Rojo vibrante */
-    #FF4D4D, /* Rojo coral más suave */
-    #000000  /* Negro para contraste */
-);
 
-  }
-  
-  .example-2 .icon-content a[data-social="github"] .filled,
-  .example-2 .icon-content a[data-social="github"] ~ .tooltip {
-    background-color: #24262a;
-  }
-  .example-2 .icon-content a[data-social="instagram"] .filled,
-  .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
-    background: linear-gradient(
-      45deg,
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* From Uiverse.io by wilsondesouza */
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.example-2 .icon-content .tooltip {
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  transform: translateY(50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+  color: white;
+}
+
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="tiktok"] .filled,
+.example-2 .icon-content a[data-social="tiktok"]~.tooltip {
+  background: linear-gradient(45deg,
+      #0077FF,
+      /* Azul brillante */
+      #005BBB,
+      /* Azul intenso */
+      #FF003C,
+      /* Rojo vibrante */
+      #FF4D4D,
+      /* Rojo coral más suave */
+      #000000
+      /* Negro para contraste */
+    );
+
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"]~.tooltip {
+  background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+  background: linear-gradient(45deg,
       #405de6,
       #5b51db,
       #b33ab4,
       #c135b4,
       #e1306c,
-      #fd1f1f
-    );
+      #fd1f1f);
+}
+
+.example-2 .icon-content a[data-social="x"] .filled,
+.example-2 .icon-content a[data-social="x"]~.tooltip {
+  background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"]~.tooltip {
+  background-color: #0274b3;
+}
+
+
+.copyright {
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 700px) {
+
+  /* Ocultar el tooltip en móviles */
+  .example-2 .icon-content .tooltip {
+    display: none;
+    /* Oculta el tooltip */
   }
-  .example-2 .icon-content a[data-social="x"] .filled,
-  .example-2 .icon-content a[data-social="x"] ~ .tooltip {
-    background-color: #24262a;
+
+  /* Ajustar el tamaño de los íconos en móviles */
+  .example-2 .icon-content a {
+    width: 45px;
+    height: 45px;
   }
-  .example-2 .icon-content a[data-social="facebook"] .filled,
-  .example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
-    background-color: #0274b3;
-  }
-  
-  
-  .copyright {
-    font-size: 16px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
+
+}

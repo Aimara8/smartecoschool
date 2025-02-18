@@ -19,6 +19,38 @@
     "description2": "Additionally, as part of our vision for innovation, we will incorporate elements of smart buildings, exploring home automation in a classroom. This approach will allow us not only to optimize resource use but also to create more connected, comfortable, and efficient spaces aligned with future needs.",
     "description3": "We are convinced that technology is not just a tool, but a catalyst for generating awareness and acting responsibly towards our planet. Together, we can make a difference."
   },
+  "functions": [
+    {
+      "name": "Raspberry Pi",
+      "description": "The brain of the system. It collects and analyzes consumption data, generating real-time reports to optimize resource use.",
+      "detail": "It is a compact, low-power microcomputer, ideal for automation projects, monitoring, and programming learning."
+    },
+    {
+      "name": "Camera",
+      "description": "Captures images of the meters, allowing precise tracking of consumption.",
+      "detail": "5MP, 1080P sensor compatible with Raspberry Pi, with night vision and a wide-angle fisheye lens."
+    },
+    {
+      "name": "Monitors",
+      "description": "Displays real-time data to raise awareness and promote responsible practices.",
+      "detail": "24\" monitors with HDMI, VGA, and DisplayPort, designed for low power consumption and high durability."
+    },
+    {
+      "name": "Flow Sensor",
+      "description": "Measures the amount of water passing through it with an internal rotor.",
+      "detail": "Measures the flow of liquids with an internal rotor that generates pulses proportional to the flow."
+    },
+    {
+      "name": "Current Sensor",
+      "description": "Allows measuring alternating current without direct contact with the circuit.",
+      "detail": "Measures alternating current without direct contact, ideal for energy monitoring and control of electricity consumption."
+    },
+    {
+      "name": "Module",
+      "description": "Designed to work with Raspberry Pi, measuring current and temperature.",
+      "detail": "Allows real-time recording of current and temperature values, ideal for energy management."
+    }
+  ],
   "us":{
       "title": "Welcome to our digital space!",
       "parragraph": "We are a group of students from the Higher Vocational Course in Multi-Platform Application Development, united by the determination to make a difference. At the heart of our work is an innovative project that reflects our technical skills and our dedication to creating a positive impact on the world around us. In our group, we don't just work together; we create an environment where collaboration thrives. With every step we take, we look towards a future full of possibilities. We know that challenges are inevitable, but we are ready to face them with determination.",
