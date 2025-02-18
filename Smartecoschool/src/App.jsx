@@ -5,13 +5,13 @@ import Hero from './Components/Hero/Hero';
 import Programs from './Components/Programs/Programs';
 import Title from './Components/Title/Title';
 import AboutUs from './Components/AboutUs/AboutUs'
-import Campus from './Components/Campus/Campus';
 import Testimonials from './Components/Testimonials/Testimonials';
 import Footer from './Components/Footer/Footer';
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
 import './i18next'; // Importa la configuración de i18next
 import Collaborators from './Components/Collaborators/Collaborators';
 import Base_de_datos from './Components/BaseDeDatos/Base_de_datos';
+import About from './Components/About/About'
 
 function App() {
   const [playerState, setPlayerState] = useState(false);
@@ -25,7 +25,8 @@ function App() {
               <Navbar />
               <Hero />
               <div className='container'>
-                <Title subTitle='Testimonials' title='What students say' />
+                <About></About>
+                <Title subTitle='Entornos reales' title='Casos de Uso' />
                 <Testimonials />
                 <Title subTitle='Funcionalidades' title='¿Cómo funciona?' />
                 <Programs />
