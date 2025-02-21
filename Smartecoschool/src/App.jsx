@@ -11,7 +11,7 @@ import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
 import './i18next'; // Importa la configuración de i18next
 import Collaborators from './Components/Collaborators/Collaborators';
 import Base_de_datos from './Components/BaseDeDatos/Base_de_datos';
-import About from './Components/About/About'
+import Goals from './Components/Goals/Goals'
 
 function App() {
   const [playerState, setPlayerState] = useState(false);
@@ -25,7 +25,7 @@ function App() {
               <Navbar />
               <Hero />
               <div className='container'>
-                <About></About>
+                <Goals/>
                 <Title subTitle='Entornos reales' title='Casos de Uso' />
                 <Testimonials />
                 <Title subTitle='Funcionalidades' title='¿Cómo funciona?' />

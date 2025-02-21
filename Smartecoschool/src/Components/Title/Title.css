@@ -1,18 +1,22 @@
 .title {
-    text-align: center;
     font-size: 15px;
     font-weight: 600;
-    text-transform: uppercase;
     margin: 70px 0 30px;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
-.title p {
-    color: #29a021;
-}
-
-.title h2 {
+.title h2{
     font-size: 32px;
-    color: #000f38;
-    margin-top: 5px;
-    text-transform: none;
+    color: #000F38;
+    margin: 10px 0;
+    max-width: 400px;
+}
+
+.title h3{
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #29a021;
 }

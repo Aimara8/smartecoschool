@@ -1,13 +1,12 @@
-.testimonials{
+.testimonials {
     margin: 25px auto;
-    padding: 0 4em 0 4em;
+    padding: 0 4em;
     position: relative;
 }
 
-.next-btn, .back-btn{
+.next-btn, .back-btn {
     position: absolute;
     top: 50%;
-    right: 0;
     transform: translateY(-50%);
     padding: 15px;
     width: 70px;
@@ -15,33 +14,35 @@
     cursor: pointer;
 }
 
-.back-btn{
-    right: auto;
+.next-btn {
+    right: 0;
+}
+
+.back-btn {
     left: 0;
 }
 
-.slider{
+.slider {
     overflow: hidden;
 }
 
-.slider ul{
+.slider ul {
     display: flex;
     width: 300%;
     transition: 0.5s;
 }
 
-.dot{
+.dot {
     list-style: none;
 }
 
 #use-case-ul {
     display: flex;
     flex-direction: column;
-    max-width: 200%;
+    max-width: 100%;
     list-style: disc;
     color: #29a021;
 }
-
 
 .use-case-ul li {
     display: flex;
@@ -52,20 +53,19 @@
     font-size: larger;
 }
 
-
 #use-case-ul span {
     flex: 1;
     width: 100%;
-    font-size: medium;
+    font-size: 18px;
     color: black;
 }
 
-.slider ul li{
+.slider ul li {
     width: 50%;
     padding: 20px;
 }
 
-.slide{
+.slide {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     padding: 30px 40px;
     border-radius: 10px;
@@ -73,125 +73,85 @@
     line-height: 1.4;
 }
 
-.user-info{
+.user-info {
     text-align: center;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    font-size: 15px;
 }
 
-.user-info h3{
-    font-size: 1.7em;
+.slide p {
+    font-size: 18px;
+}
+
+.user-info h3 {
+    font-size: 30px;
     margin: auto;
     color: #29a021;
 }
 
 /*-----Media Query-----*/
 
-/* Para pantallas menores a 800px */
-@media (max-width: 800px) {
+/* Para pantallas menores a 1200px */
+@media (max-width: 1200px) {
     .next-btn, .back-btn {
         padding: 10px;
-        width: 45px;
+        width: 50px;
     }
 
-    .testimonials{
-        padding: 0 6em 0 4em;
+    .testimonials {
+        padding: 0 2em;
     }
 
-    .testimonials ul li {
-        margin: auto;
+    .slider ul li {
+        width: 50%;
     }
 
     .slide {
+        padding: 20px 30px;
+    }
+
+    .user-info h3 {
+        font-size: 24px;
+    }
+
+    .slide p {
+        font-size: 16px;
+    }
+}
+
+/* Para pantallas menores a 800px */
+@media (max-width: 800px) {
+    .next-btn, .back-btn {
+
+        width: 45px;
+    }
+
+    .testimonials {
+        padding: 0 1em;
+    }
+
+    .slider ul li {
         width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
     }
 
-    .slider{
-        margin: auto;
-        width: 105%;
+    .slide {
+        padding: 15px 20px;
     }
 
-    .slider p {
+    .user-info h3 {
+        font-size: 20px;
+    }
+
+    .slide p {
         font-size: 14px;
     }
 
     #use-case-ul {
-        width: 300%;
-    }
-
-    .testimonials ul li{
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        font-size: medium;
+        flex-direction: column;
+        list-style: disc;
         color: #29a021;
-        margin-left: 0;
-    }
-
-    #use-case-ul span {
-        width: 100%;
-        font-size: 0.85em;
-        color: black;
-    }
-
-    .slider ul {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .slider ul li {
-        width: 32%; /* Ajuste de tamaño para que se acomoden mejor */
-        padding: 10px;
-        margin-right: 0;
-    }
-
-    .user-info h3 {
-        font-size: 1.4em;
-    }
-}
-
-/* Para pantallas menores a 660px */
-@media (max-width: 660px) {
-    .testimonials{
-        padding: 0 4em 0 4em;
-    }
-    
-    .slide {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .user-info {
-        text-align: center;
-        font-size: 12px;
-    }
-
-    .user-info h3 {
-        font-size: 18px;
-    }
-
-    .slider{
-        width: 100%;
-    }
-
-    .slider p {
-        font-size: 13px;
-    }
-
-    #use-case-ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
     }
 
     .use-case-ul li {
@@ -200,17 +160,33 @@
     }
 
     #use-case-ul span {
-        font-size: 0.75em;
+        font-size: 0.85em;
+    }
+}
+
+/* Para pantallas menores a 660px */
+@media (max-width: 660px) {
+    .testimonials {
+        padding: 0 1em;
     }
 
-    .slider ul {
-        display: flex; /* Flex para que los items no se desborden */
-        width: 300%; /* Asegura que el contenedor se ajuste correctamente */
+    .slide {
+        padding: 10px 15px;
     }
 
-    .slider ul li {
-        width: 100%; /* Hace que cada item ocupe el 100% del ancho disponible */
-        padding: 10px;
-        margin-right: 0;
+    .slide:active{
+        cursor: grabbing;
+    }
+
+    .user-info h3 {
+        font-size: 18px;
+    }
+
+    .slide p {
+        font-size: 13px;
+    }
+
+    #use-case-ul{
+        display: none;
     }
 }

@@ -1,4 +1,4 @@
-.programs { 
+.programs {
     margin: 80px auto;
     width: 90%;
     text-align: center;
@@ -16,23 +16,26 @@
 .programs-container {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas grandes */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas en pantallas grandes */
+    justify-content: center;
 }
 
 /* Estilos de cada elemento */
 .program {
     position: relative;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+
 }
 
 .program img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
     display: block;
-    height: 350px;
 }
 
 /* Estilos del caption */
@@ -54,6 +57,12 @@
     opacity: 0;
     padding-top: 70%;
     transition: 0.4s;
+    font-size: 18px;
+}
+
+.caption h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
 .program:hover .caption {
@@ -69,9 +78,9 @@
     border-radius: 5px;
     background-color: #28a745;
     color: white;
-    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 16px;
 }
 
 .caption-button:hover {
@@ -81,12 +90,41 @@
 /* Responsividad */
 @media (max-width: 1024px) {
     .programs-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas medianas */
     }
 }
 
 @media (max-width: 768px) {
     .programs-container {
-        grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 columna en móviles */
+        justify-items: center;
+    }
+
+    .program {
+        width: 400px;
+        height: 350px;
+    }
+
+    .programs {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 508px) {
+    .programs-container {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 columna en móviles */
+        justify-items: center;
+    }
+
+    .program {
+        width: 300px;
+        height: 300px;
+    }
+
+    .programs {
+        margin-top: 0;
     }
 }

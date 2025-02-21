@@ -66,12 +66,12 @@ const Base_de_datos = () => {
       setError(null); // Reiniciar el estado de error
       try {
         // Obtener datos de luz
-        const luzResponse = await axios.get("http://2.139.196.172:8888/api/medidas/1");
+        const luzResponse = await axios.get("http://192.168.100.20:8081/api/medidas/1");
         const luzDatosProcesados = procesarDatosDiarios(luzResponse.data);
         setLuzData(luzDatosProcesados);
 
         // Obtener datos de agua
-        const aguaResponse = await axios.get("http://2.139.196.172:8888/api/medidas/2");
+        const aguaResponse = await axios.get("http://192.168.100.20:8081/api/medidas/2");
         const aguaDatosProcesados = procesarDatosDiarios(aguaResponse.data);
         setAguaData(aguaDatosProcesados);
       } catch (error) {

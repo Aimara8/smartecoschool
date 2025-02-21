@@ -51,11 +51,37 @@
       "detail": "Allows real-time recording of current and temperature values, ideal for energy management."
     }
   ],
-  "us":{
-      "title": "Welcome to our digital space!",
-      "parragraph": "We are a group of students from the Higher Vocational Course in Multi-Platform Application Development, united by the determination to make a difference. At the heart of our work is an innovative project that reflects our technical skills and our dedication to creating a positive impact on the world around us. In our group, we don't just work together; we create an environment where collaboration thrives. With every step we take, we look towards a future full of possibilities. We know that challenges are inevitable, but we are ready to face them with determination.",
-      "text": "Thank you for being part of this journey with us.",
-      "small-text": "State-of-the-art technologies and applications",
-      "small-text2": "Commitment and awareness of the environment"
+  "us": {
+    "title": "Welcome to our digital space!",
+    "parragraph": "We are a group of students from the Higher Vocational Course in Multi-Platform Application Development, united by the determination to make a difference. At the heart of our work is an innovative project that reflects our technical skills and our dedication to creating a positive impact on the world around us. In our group, we don't just work together; we create an environment where collaboration thrives. With every step we take, we look towards a future full of possibilities. We know that challenges are inevitable, but we are ready to face them with determination.",
+    "text": "Thank you for being part of this journey with us.",
+    "small-text": "State-of-the-art technologies and applications",
+    "small-text2": "Commitment and awareness of the environment"
+  },
+  "testimonials": {
+    "smartHomes": {
+      "title": "Smart Homes",
+      "description": "Smart homes are transforming the way we consume resources like light and water. Our IoT system combines advanced sensors, artificial intelligence, and an easy-to-use interface to ensure residents have full control over their energy consumption. Through the mobile app, users can schedule lights, monitor water usage in real-time, and receive personalized recommendations based on their consumption history. Additionally, smart sensors detect daily habits to automatically adjust the system. For example, if they detect the house is empty, they turn off the lights and adjust the thermostat, preventing waste. This not only contributes to economic savings but also minimizes environmental impact.",
+      "benefits": "Benefits:",
+      "benefit1": "25-40% savings on water and electricity bills.",
+      "benefit2": "Remote control of devices like lights and thermostats.",
+      "benefit3": "Alerts in case of water leaks or excessive use."
+    },
+    "commercialBuildings": {
+      "title": "Commercial Buildings",
+      "description": "Smart commercial buildings are revolutionizing resource management by integrating IoT technology for efficient control of light and water. Our system allows for the automation of lighting and climate control, adjusting according to space occupancy and environmental conditions. This not only optimizes energy consumption but also improves the comfort of employees and visitors. Through a centralized platform, administrators can monitor water and energy consumption in real-time, receive alerts of potential anomalies, and apply customized settings to maximize operational efficiency.",
+      "benefits": "Benefits:",
+      "benefit1": "30-50% reduction in energy and water costs.",
+      "benefit2": "Automation of lighting and climate control based on occupancy.",
+      "benefit3": "Real-time monitoring with alerts for water leaks or abnormal energy use."
+    },
+    "publicSpaces": {
+      "title": "Sustainable Public Spaces",
+      "description": "Public spaces, such as parks, plazas, and recreational areas, can greatly benefit from smart resource management systems. Our IoT system optimizes public lighting by adjusting its intensity according to the time of day and the presence of people, improving safety and reducing energy consumption. Additionally, irrigation systems are automatically controlled considering climatic factors such as soil moisture and weather forecasts, preventing water waste and ensuring more responsible use of natural resources.",
+      "benefits": "Benefits:",
+      "benefit1": "Up to 40% savings in water consumption thanks to smart irrigation adapted to climatic conditions.",
+      "benefit2": "Significant cost reduction in public lighting by automatically adjusting light intensity.",
+      "benefit3": "Improved public safety by activating lights in response to the presence of people in specific areas."
+    }
   }
 }

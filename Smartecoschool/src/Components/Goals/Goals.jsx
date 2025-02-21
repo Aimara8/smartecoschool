@@ -1,9 +1,9 @@
 import React from 'react';
-import './About.css';
+import './Goals.css';
 import contadorLuz from '../../assets/teclado.jpg';
 import { useTranslation } from 'react-i18next';
 
-const About = ({ setPlayerState }) => {
+const Goals = ({ setPlayerState }) => {
     const { t } = useTranslation();
 
     return (
@@ -26,4 +26,4 @@ const About = ({ setPlayerState }) => {
     );
 };
 
-export default About;
+export default Goals;
