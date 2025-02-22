@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  padding: 20px 0;
+  padding: 30px 0;
   background: linear-gradient(to right, #21a029, #1a7e2b, #0d4516);
   color: #fff;
   display: flex;
@@ -48,7 +48,7 @@ ul {
   right: 0;
   transform: translateY(50%);
   color: #fff;
-  padding: 6px 10px;
+  padding: 6px 6px;
   border-radius: 5px;
   opacity: 0;
   visibility: hidden;
@@ -59,7 +59,7 @@ ul {
 .example-2 .icon-content:hover .tooltip {
   opacity: 1;
   visibility: visible;
-  top: -50px;
+  top: -40px;
 }
 
 .example-2 .icon-content a {
@@ -109,16 +109,14 @@ ul {
 .example-2 .icon-content a[data-social="tiktok"] .filled,
 .example-2 .icon-content a[data-social="tiktok"]~.tooltip {
   background: linear-gradient(45deg,
-      #0077FF,
+      #69C9D0,
       /* Azul brillante */
-      #005BBB,
-      /* Azul intenso */
-      #FF003C,
-      /* Rojo vibrante */
-      #FF4D4D,
-      /* Rojo coral más suave */
-      #000000
-      /* Negro para contraste */
+      #45A7E6,
+      /* Azul intermedio */
+      #EE1D52,
+      /* Rosa vibrante */
+      #FF006B
+      /* Rosa más intenso */
     );
 
 }

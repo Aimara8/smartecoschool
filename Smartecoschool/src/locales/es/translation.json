@@ -2,9 +2,10 @@
   "navbar": {
     "home": "Inicio",
     "objectives": "Objetivos",
+    "casesofuse": "Casos de uso",
     "functioning": "Funcionamiento",
     "aboutUs": "Sobre Nosotros",
-    "socialMedia": "Redes Sociales",
+    "colaborators": "Colaboradores",
     "wiki": "Wiki"
   },
   "hero": {
@@ -52,6 +53,10 @@
       }
     ]
   ,
+  "more": {
+    "more": "Ver más",
+    "close": "Cerrar"
+  },
   "us": {
     "title": "¡Bienvenido a nuestro espacio digital!",
     "parragraph": "Somos un grupo de estudiantes del Ciclo Superior de Desarrollo de Aplicaciones Multiplataforma, unidos por la determinación de hacer la diferencia. En el corazón de nuestro trabajo se encuentra un proyecto innovador que refleja nuestras habilidades técnicas y nuestra dedicación a crear un impacto positivo en el mundo que nos rodea. En nuestro grupo, no solo trabajamos juntos, sino que creamos un ambiente donde la colaboración florece. Con cada paso que damos, miramos hacia un futuro lleno de posibilidades. Sabemos que los desafíos son inevitables, pero estamos listos para enfrentarlos con determinación.",
@@ -84,5 +89,18 @@
       "benefit2": "Reducción significativa de costos en iluminación pública, al ajustar automáticamente la intensidad lumínica.",
       "benefit3": "Mejora de la seguridad ciudadana mediante la activación de luces en respuesta a la presencia de personas en zonas específicas."
     }
+  },
+  "titles": {
+    "title1": "Casos de Uso",
+    "subtitle1": "Entornos Reales",
+    "title2": "¿Cómo funciona?",
+    "subtitle2": "Funcionalidades",
+    "title3": "Sobre Nosotros",
+    "subtitle3": "Nuestro Equipo",
+    "title4": "Colaboradores y Patrocinadores",
+    "subtitle4": "Nuestros Aliados"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
   }
 }

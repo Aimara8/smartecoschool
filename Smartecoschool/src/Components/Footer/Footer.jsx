@@ -1,12 +1,9 @@
 import React from 'react'
 import './Footer.css'
-import instagram from '../../assets/instagram.png'
-import facebook from '../../assets/facebook.png'
-import x from '../../assets/twitter.png'
-import tiktok from '../../assets/tik-tok.png'
-import github from '../../assets/github.png'
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
     return (
         <footer className="footer">
             {/* Redes Sociales */}
@@ -99,7 +96,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <div className="copyright">
-                <p>&copy; {new Date().getFullYear()} Smartecoschool. Todos los derechos reservados.</p>
+                <p>&copy; {new Date().getFullYear()} Smartecoschool. {t('footer.rights')}.</p>
             </div>
         </footer>
     )

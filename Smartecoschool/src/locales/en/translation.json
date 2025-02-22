@@ -2,9 +2,10 @@
   "navbar": {
     "home": "Home",
     "objectives": "Goals",
+    "casesofuse": "Use Cases",
     "functioning": "Functioning",
     "aboutUs": "About Us",
-    "socialMedia": "Social Media",
+    "colaborators": "Colaborators",
     "wiki": "Wiki"
   },
   "hero": {
@@ -51,6 +52,10 @@
       "detail": "Allows real-time recording of current and temperature values, ideal for energy management."
     }
   ],
+  "more": {
+    "more": "See more",
+    "close": "Close"
+  },
   "us": {
     "title": "Welcome to our digital space!",
     "parragraph": "We are a group of students from the Higher Vocational Course in Multi-Platform Application Development, united by the determination to make a difference. At the heart of our work is an innovative project that reflects our technical skills and our dedication to creating a positive impact on the world around us. In our group, we don't just work together; we create an environment where collaboration thrives. With every step we take, we look towards a future full of possibilities. We know that challenges are inevitable, but we are ready to face them with determination.",
@@ -83,5 +88,18 @@
       "benefit2": "Significant cost reduction in public lighting by automatically adjusting light intensity.",
       "benefit3": "Improved public safety by activating lights in response to the presence of people in specific areas."
     }
+  },
+  "titles": {
+    "title1": "Use Cases",
+    "subtitle1": "Real Environments",
+    "title2": "How Does It Work?",
+    "subtitle2": "Features",
+    "title3": "About Us",
+    "subtitle3": "Our Team",
+    "title4": "Collaborators and Sponsors",
+    "subtitle4": "Our Allies"
+  },
+  "footer": {
+    "rights": "All rights reserved"
   }
 }

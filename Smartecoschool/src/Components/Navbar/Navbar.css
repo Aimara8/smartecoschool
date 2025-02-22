@@ -75,7 +75,7 @@ nav ul li {
     display: none;
 }
 
-@media (max-width: 1068px) {
+@media (max-width: 1353px) {
     nav {
         padding: 15px 0;
     }
@@ -105,7 +105,7 @@ nav ul li {
 
     .hide-lang-buttons {
         position: fixed;
-        top: 650px;
+        top: 550px;
         right: -200px;
         /* Mantén la posición fuera de la vista */
         opacity: 0;

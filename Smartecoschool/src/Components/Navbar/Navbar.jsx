@@ -35,9 +35,10 @@ const Navbar = () => {
             <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
                 <li><Link to='hero' smooth={true} offset={0} duration={500}>{t('navbar.home')}</Link></li>
                 <li><Link to='about' smooth={true} offset={-150} duration={500}>{t('navbar.objectives')}</Link></li>
+                <li><Link to='testimonials' smooth={true} offset={-180} duration={500}>{t('navbar.casesofuse')}</Link></li>
                 <li><Link to='programs' smooth={true} offset={-260} duration={500}>{t('navbar.functioning')}</Link></li>
-                <li><Link to='about-container' smooth={true} offset={-260} duration={500}>{t('navbar.aboutUs')}</Link></li>
-                <li><Link to='footer' smooth={true} offset={0} duration={500}>{t('navbar.socialMedia')}</Link></li>
+                <li><Link to='about-container' smooth={true} offset={-200} duration={500}>{t('navbar.aboutUs')}</Link></li>
+                <li><Link to='collaborators-section' smooth={true} offset={0} duration={500}>{t('navbar.colaborators')}</Link></li>
                 <li><a href="https://wiki.ieselrincon.es/index.php?title=SmartEcoSchool" target='_blank' rel="noopener noreferrer">
                     <button className='btn'>{t('navbar.wiki')}</button>
                 </a></li>

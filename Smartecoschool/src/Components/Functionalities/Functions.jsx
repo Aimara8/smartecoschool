@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Modal from "../Modal/Modal.jsx";
-import './Programs.css';
+import './Functions.css';
 import monitor from '../../assets/monitor.jpg';
 import raspberryPi from '../../assets/Raspberry_Pi.jpg';
 import camara from '../../assets/camara.jpg';
@@ -34,7 +34,7 @@ const Programs = () => {
                         <div className='caption'>
                             <h3>{func.name}</h3>
                             <p>{func.description}</p>
-                            <button className='caption-button' onClick={() => openModal(func.name, func.detail)}>Ver más</button>
+                            <button className='caption-button' onClick={() => openModal(func.name, func.detail)}>{t('more.more')}</button>
                         </div>
                     </div>
                 ))}

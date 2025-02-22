@@ -1,5 +1,5 @@
 import React from 'react';
-import './Testimonials.css';
+import './Use_Cases.css';
 import next_icon from '../../assets/next-button.png';
 import back_icon from '../../assets/back-button.png';
 import { useTranslation } from 'react-i18next';
@@ -11,18 +11,23 @@ const Testimonials = () => {
     let tx = 0;
 
     const slideForward = () => {
-        if (tx > -50) {
-            tx -= 33.33;
+        if (tx <= -66.66) { // Si está en el último slide, vuelve al primero
+            tx = 0;
+        } else {
+            tx -= 33.33; // Avanza al siguiente
         }
         slider.current.style.transform = `translateX(${tx}%)`;
     };
-
+    
     const slideBackward = () => {
-        if (tx < 0) {
-            tx += 33.33;
+        if (tx >= 0) { // Si está en el primer slide, vuelve al último
+            tx = -66.66;
+        } else {
+            tx += 33.33; // Retrocede al anterior
         }
         slider.current.style.transform = `translateX(${tx}%)`;
     };
+    
 
     // Función para iniciar el arrastre
     const startDragging = (e) => {
@@ -47,8 +52,6 @@ const Testimonials = () => {
 
     return (
         <div className='testimonials'>
-            <img src={next_icon} alt="" className='next-btn' onClick={slideForward} />
-            <img src={back_icon} alt="" className='back-btn' onClick={slideBackward} />
 
             <div className="slider">
                 <ul ref={slider}>
@@ -103,6 +106,14 @@ const Testimonials = () => {
                     </li>
                 </ul>
             </div>
+
+
+            {/* Contenedor para los botones */}
+            <div className="buttons-container">
+                <img src={back_icon} alt="Back" className='back-btn' onClick={slideBackward} />
+                <img src={next_icon} alt="Next" className='next-btn' onClick={slideForward} />
+            </div>
+
         </div>
     );
 };
