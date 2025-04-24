@@ -101,9 +101,18 @@ src/
 - 📘 FaceBook: [SmartEcoSchool](https://www.facebook.com/profile.php?id=61553394718939)
 
 
+--
+
 ### 🙌 Agradecimientos
 
-Gracias especiales a:
-- El equipo de SmartEcoSchool
-- Nuestros patrocinadores y partners tecnológicos
-- [IES El Rincón](https://ieselrincon.es)
+Agradecemos profundamente a todas las personas e instituciones que hacen posible este proyecto:
+
+- 🧑‍🎓 El alumnado creador del proyecto **SmartEcoSchool**
+- 👨‍🏫 Los profesores impulsores y guías del desarrollo
+- 🏫 El apoyo institucional del [**IES El Rincón**](https://ieselrincon.es)
+- 🏛️ El [**Gobierno de Canarias**](https://www.gobiernodecanarias.org/principal/),  por su apoyo institucional y **financiación directa** del proyecto
+
+---
+
+© {{CURRENT_YEAR}} SmartEcoSchool · Todos los derechos reservados.
+
