@@ -101,7 +101,7 @@ src/
 - 📘 FaceBook: [SmartEcoSchool](https://www.facebook.com/profile.php?id=61553394718939)
 
 
---
+----
 
 ### 🙌 Agradecimientos
 
@@ -112,7 +112,7 @@ Agradecemos profundamente a todas las personas e instituciones que hacen posible
 - 🏫 El apoyo institucional del [**IES El Rincón**](https://ieselrincon.es)
 - 🏛️ El [**Gobierno de Canarias**](https://www.gobiernodecanarias.org/principal/),  por su apoyo institucional y **financiación directa** del proyecto
 
----
+##
 
-© {{CURRENT_YEAR}} SmartEcoSchool · Todos los derechos reservados.
+© 2025 SmartEcoSchool · Todos los derechos reservados.
 
