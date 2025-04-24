@@ -88,8 +88,8 @@ src/
 ### Canales Oficiales
 
 **Equipo Principal**  
-✉️ Email general: [contacto@smartecoschool.com](mailto:contacto@smartecoschool.com) ‼️
-🌐 Sitio web: [https://smartecoschool.com](https://smartecoschool.com)  
+✉️ Email general: [contacto@smartecoschool.com](mailto:contacto@smartecoschool.com) ‼️  
+🌐 Sitio web: [https://smartecoschool.com](https://smartecoschool.com)
 
 
 ### Redes Sociales
