@@ -16,7 +16,6 @@ Nuestra misión es revolucionar la educación mediante:
 - Información completa sobre la iniciativa
 - Demostraciones interactivas de las tecnologías
 - Casos de éxito en centros educativos
-- Blog con actualizaciones y noticias
 
 ### 🌍 Soporte Multilingüe
 - Internacionalización completa (i18n)
@@ -26,7 +25,6 @@ Nuestra misión es revolucionar la educación mediante:
 ### 📱 Diseño Responsivo
 - Adaptable a todos los dispositivos
 - Experiencia de usuario optimizada
-- Accesibilidad WCAG AA
 
 ## 🛠️ Tecnologías Implementadas
 
