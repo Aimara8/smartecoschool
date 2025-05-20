@@ -4,6 +4,7 @@ import { Chart, registerables } from "chart.js";
 import "./Base_de_datos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb, faTint } from "@fortawesome/free-solid-svg-icons";
+import Sensores from '../Sensores/Sensores'
 
 Chart.register(...registerables);
 
@@ -248,6 +249,9 @@ const Base_de_datos = () => {
             <canvas id="aguaChart"></canvas>
           </div>
         </div>
+      </div>
+      <div>
+        <Sensores/>
       </div>
     </div>
   );
