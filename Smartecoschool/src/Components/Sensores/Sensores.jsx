@@ -1,5 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import axios from "axios";
+import "./Sensores.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTemperatureHalf, faDroplet } from "@fortawesome/free-solid-svg-icons";
 
 const Sensores = () => {
 
@@ -8,51 +11,6 @@ const Sensores = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Función para procesar los datos diarios
-    const procesarDatosDiarios = useCallback((data) => {
-        const datosPorDia = {};
-
-        // Agrupar los datos por día y seleccionar el último registro del día
-        data.forEach((item) => {
-            const fecha = new Date(item.fecha);
-            const dia = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
-
-            // Si ya existe un registro para este día, comparamos las horas
-            if (datosPorDia[dia]) {
-                const fechaExistente = new Date(datosPorDia[dia].fecha);
-                if (fecha > fechaExistente) {
-                    datosPorDia[dia] = { fecha: item.fecha, medidas: Number.parseFloat(item.medidas) };
-                }
-            } else {
-                // Si no existe, lo agregamos
-                datosPorDia[dia] = { fecha: item.fecha, medidas: Number.parseFloat(item.medidas) };
-            }
-        });
-
-        // Convertir el objeto a un array y ordenarlo por fecha
-        const datosDiarios = Object.keys(datosPorDia)
-            .map((dia) => ({
-                fecha: dia,
-                medidas: datosPorDia[dia].medidas,
-            }))
-            .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-        // Calcular el medidas diario
-        const medidasDiario = datosDiarios.map((item, index) => {
-            if (index === 0) {
-                return { fecha: item.fecha, medidasDiario: 0 }; // El primer día no tiene medidas diario
-            } else {
-                const medidasAnterior = datosDiarios[index - 1].medidas;
-                return { fecha: item.fecha, medidasDiario: item.medidas - medidasAnterior };
-            }
-        });
-
-        return {
-            labels: medidasDiario.map((item) => item.fecha),
-            medidas: medidasDiario.map((item) => item.medidasDiario),
-        };
-    }, []);
-
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
@@ -60,18 +18,19 @@ const Sensores = () => {
             try {
                 // Obtener datos de temperatura y humedad
                 const response = await axios.get("http://escritorios.ieselrincon.es:3306/api/medidas");
-                const TempDatosProcesados = procesarDatosDiarios(response.data.filter((temp) => {
-                    return temp.idSensor == 5
-                }));
 
-                console.log(TempDatosProcesados)
-                const humDatosProcesados = procesarDatosDiarios(response.data.filter((hum) => {
-                    return hum.idSensor == 6
-                }));
+                // Filtrar y ordenar los datos de temperatura y humedad
+                const tempFiltrados = response.data.filter((temp) => temp.idSensor == 5);
+                const tempOrdenados = tempFiltrados.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+                const ultimoRegistroTemp = tempOrdenados.at(-1);
+
+                const humFiltrados = response.data.filter((temp) => temp.idSensor == 6);
+                const humOrdenados = humFiltrados.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+                const ultimoRegistroHum = humOrdenados.at(-1);
 
 
-                settemperaturaData(TempDatosProcesados)
-                sethumedadData(humDatosProcesados)
+                settemperaturaData(ultimoRegistroTemp)
+                sethumedadData(ultimoRegistroHum)
             } catch (error) {
                 setError("Error al cargar los datos. Intenta nuevamente más tarde.");
                 console.error("Error al obtener los datos:", error);
@@ -81,13 +40,24 @@ const Sensores = () => {
         };
 
         fetchData();
-    }, [procesarDatosDiarios]);
+    }, []);
 
-    
+
     return (
-        <div>
-            <p>Temperatura: {temperaturaData.medidas}</p>
-            <p>Humedad: {humedadData.medidas}</p>
+        <div className='sensores'>
+            <h2>{new Date(temperaturaData.fecha).toLocaleDateString()}</h2>
+            {isLoading && <p>Cargando datos...</p>}
+            {error && <p className='error-message'>{error}</p>}
+            <div className='sensores_container'>
+                <div className='sensores_temp'>
+                    <FontAwesomeIcon icon={faTemperatureHalf} className='icono_temp' />
+                    <p>Temperatura: {temperaturaData.medidas} °C</p>
+                </div>
+                <div className='sensores_hum'>
+                    <FontAwesomeIcon icon={faDroplet} className='icono_hum' />
+                    <p>Humedad: {humedadData.medidas} %</p>
+                </div>
+            </div>
         </div>
     )
 }
