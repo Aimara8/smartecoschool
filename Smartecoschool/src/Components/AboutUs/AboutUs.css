@@ -330,7 +330,7 @@
     }
 
     #btn-right-column {
-        width: 100%;
+        width: 200px;
         font-size: 18px;
         padding: 12px 0;
     }
@@ -407,14 +407,15 @@
     }
 
     #btn-right-column {
-        width: 100%;
+        width: 200px;
         font-size: 14px;
         padding: 10px;
     }
 }
 
-.modal-overlay {
+.modal-participants-overlay {
     position: fixed;
+    backdrop-filter: blur(2px);
     top: 0;
     left: 0;
     width: 100%;
@@ -426,7 +427,7 @@
     z-index: 2000;
 }
 
-.modal-content {
+.modal-participants-content {
     background-color: #ffffff;
     border-radius: 15px;
     padding: 30px;
@@ -440,38 +441,38 @@
     flex-direction: column;
 }
 
-.modal-scroll-area {
+.modal-participants-scroll-area {
     overflow-y: auto;
     flex-grow: 1;
     padding-right: 10px;
 }
 
-.modal-scroll-area::-webkit-scrollbar {
+.modal-participants-scroll-area::-webkit-scrollbar {
     width: 8px;
 }
 
-.modal-scroll-area::-webkit-scrollbar-thumb {
+.modal-participants-scroll-area::-webkit-scrollbar-thumb {
     background-color: rgba(41, 160, 33, 0.5);
     border-radius: 10px;
 }
 
-.modal-close {
+.modal-participants-close {
     position: absolute;
-    top: 1px;
-    right: 20px;
-    font-size: 24px;
+    top: 26px;
+    right: 26px;
+    font-size: 32px;
     background: none;
     border: none;
-    color: #999;
+    color: rgba(41, 160, 33, 0.5);
     cursor: pointer;
     transition: color 0.2s ease-in-out;
 }
 
-.modal-close:hover {
+.modal-participants-close:hover {
     color: #333;
 }
 
-.modal-content h3 {
+.modal-participants-content h3 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #141414;
@@ -504,10 +505,19 @@
     border: 2px solid #29a021, ;
     border-radius: 20px;
     margin-bottom: 14px;
+    text-align: center;
 }
 
 .divParticipants h3 {
     margin-top: 10px;
     margin-bottom: 2px;
     padding-bottom: 5px;
+    display: flex;              
+    align-items: center;       
+    justify-content: center;
+}
+.participantsIcon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
