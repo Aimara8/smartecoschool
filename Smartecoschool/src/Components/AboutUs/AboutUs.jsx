@@ -3,6 +3,11 @@ import "./AboutUs.css";
 import aboutImg1 from "../../assets/trabajando2.webp";
 import aboutImg2 from "../../assets/trabajando1.webp";
 import iconComputer from "../../assets/icon-escritorio.png";
+import webIcon from "../../assets/web-icon.jpg";
+import backendIcon from "../../assets/Backend-Icon.webp";
+import kioskoIcon from "../../assets/kiosko-Icon.png";
+import meterIcon from "../../assets/meter-icon.jpg";
+import sensorIcon from "../../assets/sensor-icon.jpg";
 import iconManos from "../../assets/icon-manos.png";
 import { useTranslation } from 'react-i18next';
 
@@ -59,15 +64,16 @@ const AboutUs = () => {
             </section>
 
             {showModal && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <button className="modal-close" onClick={handleCloseModal}>×</button>
+                <div className="modal-participants-overlay" onClick={handleCloseModal}>
+                    <div className="modal-participants-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-participants-close" onClick={handleCloseModal}>×</button>
                         <h3>{t('participants')}</h3>
 
-                        <div className="modal-scroll-area">
+                        <div className="modal-participants-scroll-area">
                             <div className="names-list">
                                 <div className="divParticipants">
-                                    <h3>Web</h3>
+
+                                    <h3> <img src={webIcon} alt="webIcon" className="participantsIcon" />Web </h3>
                                     <ul>
                                         <li>Enrique García Pérez</li>
                                         <li>Cristian Jonay Jiménez Moreno</li>
@@ -79,18 +85,19 @@ const AboutUs = () => {
                                 </div>
 
                                 <div className="divParticipants">
-                                    <h3>BackEnd</h3>
+                                    <h3> <img src={backendIcon} alt="backendIcon" className="participantsIcon" />BackEnd </h3>
                                     <ul>
                                         <li>Gabriel Medina Torres</li>
                                         <li>Francisco Javier Naranjo Escobio</li>
                                         <li>Dalila María Sambruno Padilla</li>
                                         <li>Adrián Lajo Carbo</li>
                                         <li>Elsa Ramírez Castaño</li>
+                                        <li>Flavio Melián Santana</li>
                                     </ul>
                                 </div>
 
                                 <div className="divParticipants">
-                                    <h3>Sensores</h3>
+                                    <h3> <img src={sensorIcon} alt="sensorIcon" className="participantsIcon" />Sensores </h3>
                                     <ul>
                                         <li>Lara del Carmen Hernandez Santana</li>
                                         <li>Suan Adoney Morales Espino</li>
@@ -101,22 +108,21 @@ const AboutUs = () => {
                                 </div>
 
                                 <div className="divParticipants">
-                                    <h3>Raspberry</h3>
+                                    <h3> <img src={kioskoIcon} alt="kioskoIcon" className="participantsIcon" />Kiosko </h3>
                                     <ul>
                                         <li>Moises Miranda Rivero</li>
                                         <li>Gonzalo Pérez Cabrera</li>
                                         <li>Jorge Bolaños Sánchez</li>
                                         <li>Jonathan San Pedro Montes</li>
-                                        <li>Ivan Domingues Suarez</li>
+                                        <li>Ivan Domínguez Suárez</li>
                                     </ul>
                                 </div>
 
                                 <div className="divParticipants">
-                                    <h3>Raspberry BackEnd</h3>
+                                    <h3> <img src={meterIcon} alt="meterIcon" className="participantsIcon" />Contadores </h3>
                                     <ul>
                                         <li>Anahel Gines Delgado Almeida</li>
                                         <li>Alexis Felipe Rodriguez</li>
-                                        <li>Flavio Melián Santana</li>
                                         <li>Gabriel Marrero Rivero</li>
                                         <li>Javier Rodriguez Castellano</li>
                                         <li>Jose María Garcia Morales</li>

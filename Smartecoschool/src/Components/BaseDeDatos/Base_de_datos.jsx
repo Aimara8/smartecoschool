@@ -66,7 +66,7 @@ const Base_de_datos = () => {
       setError(null); // Reiniciar el estado de error
       try {
         // Obtener datos de luz
-        const luzResponse = await axios.get("http://192.168.100.20:8081/api/medidas/1");
+        const luzResponse = await axios.get("http:///api/medidas/1");
         const luzDatosProcesados = procesarDatosDiarios(luzResponse.data);
         setLuzData(luzDatosProcesados);
 
