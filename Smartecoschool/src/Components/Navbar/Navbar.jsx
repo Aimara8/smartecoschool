@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Navbar.css';
 import { Link } from 'react-scroll';
+import { Menu } from '../SVG/SVG';
 import logo from '../../assets/logo.webp';
 import { useTranslation } from 'react-i18next';
+import './Navbar.css';
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
@@ -51,9 +52,8 @@ const Navbar = () => {
             </div>
 
             {/* Ícono del menú */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className='menu-icon' onClick={ToggleMenu} viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg>
+            <Menu className='menu-icon' openMenu={ToggleMenu} />
+
         </nav>
     );
 };
