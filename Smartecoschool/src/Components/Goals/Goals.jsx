@@ -1,6 +1,6 @@
 import React from 'react';
 import './Goals.css';
-import contadorLuz from '../../assets/fondo.png';
+import contadorLuz from '../../assets/fondo_video.webp';
 import { useTranslation } from 'react-i18next';
 
 const Goals = ({ setPlayerState }) => {
