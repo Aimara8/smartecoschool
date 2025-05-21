@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./AboutUs.css";
 import aboutImg1 from "../../assets/trabajando2.webp";
 import aboutImg2 from "../../assets/trabajando1.webp";
-import iconComputer from "../../assets/icon-escritorio.png";
-import iconManos from "../../assets/icon-manos.png";
+import iconComputer from "../../assets/icon-escritorio.webp";
+import iconManos from "../../assets/icon-manos.webp";
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Use_Cases.css';
-import next_icon from '../../assets/next-button.png';
-import back_icon from '../../assets/back-button.png';
+import next_icon from '../../assets/next-button.webp';
+import back_icon from '../../assets/back-button.webp';
 import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
 

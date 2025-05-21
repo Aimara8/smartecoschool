@@ -1,7 +1,7 @@
 .hero {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0, 50, 20, 0.7), rgba(0, 50, 20, 0.7)), url('../../assets/research.jpg');
+    background-image: linear-gradient(rgba(0, 50, 20, 0.7), rgba(0, 50, 20, 0.7)), url('../../assets/research.webp');
     /*background-attachment: fixed;*/
     background-repeat: no-repeat;
     background-size: cover;

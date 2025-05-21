@@ -1,8 +1,8 @@
 //npm install tailwindcss @tailwindcss/vite
 import React from 'react';
 import './Collaborators.css'
-import LogoGobierno from '../../assets/gobierno_de_canarias.png'; // Ruta al logo 1
-import LogoInstituto from '../../assets/ies_el_rincon.png'; // Ruta al logo 2
+import LogoGobierno from '../../assets/gobierno_de_canarias.webp'; // Ruta al logo 1
+import LogoInstituto from '../../assets/ies_el_rincon.webp'; // Ruta al logo 2
 
 const Collaborators = () => {
   // Datos de colaboradores/patrocinadores
