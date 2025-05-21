@@ -3,11 +3,11 @@ import "./AboutUs.css";
 import aboutImg1 from "../../assets/trabajando2.webp";
 import aboutImg2 from "../../assets/trabajando1.webp";
 import iconComputer from "../../assets/icon-escritorio.webp";
-import webIcon from "../../assets/web-icon.jpg";
+import webIcon from "../../assets/web-icon.webp";
 import backendIcon from "../../assets/Backend-Icon.webp";
-import kioskoIcon from "../../assets/kiosko-Icon.png";
-import meterIcon from "../../assets/meter-icon.jpg";
-import sensorIcon from "../../assets/sensor-icon.jpg";
+import kioskoIcon from "../../assets/kiosko-Icon.webp";
+import meterIcon from "../../assets/meter-icon.webp";
+import sensorIcon from "../../assets/sensor-icon.webp";
 import iconManos from "../../assets/icon-manos.webp";
 import { useTranslation } from 'react-i18next';
 
