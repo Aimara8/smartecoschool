@@ -8,7 +8,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate("/base-de-datos");
+    navigate("/sensores");
   };
 
   return (

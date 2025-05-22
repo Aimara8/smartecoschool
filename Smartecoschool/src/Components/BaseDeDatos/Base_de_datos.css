@@ -76,57 +76,122 @@
   height: 100% !important;
 }
 
-/* Mejoras en el responsive */
-@media (max-width: 768px) {
-  .base_de_datos {
-    padding: 10px;
-    min-height: 90vh;
-  }
-
+@media (max-width: 900px) {
+  /* Tablet en orientación vertical */
   .base_de_datos h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
   }
+  
+  .base_de_datos h2 {
+    font-size: 1.4rem;
+  }
+  
+  .chart-icon {
+    font-size: 1.4rem;
+  }
+}
 
+@media (max-width: 768px) {
+  /* Tablet pequeña y móviles grandes */
+  .base_de_datos {
+    padding: 15px;
+    justify-content: flex-start; /* Mejor distribución del espacio */
+    min-height: auto; /* Elimina el min-height fijo */
+  }
+  
   .charts-container {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    max-width: 600px; /* Limita el ancho máximo */
   }
-
+  
   .chart-card {
     width: 100%;
     max-width: 100%;
-    padding: 15px;
+    padding: 20px;
   }
-
+  
   .chart-header {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row; /* Mantiene icono y texto en línea */
+    justify-content: flex-start; /* Alineación a la izquierda */
+    margin-bottom: 15px;
   }
-
+  
   .chart-icon {
-    margin-right: 0;
-    margin-bottom: 10px;
+    margin-right: 12px;
+    margin-bottom: 0;
   }
-
-  .base_de_datos h2 {
-    font-size: 1.25rem;
-  }
-
+  
   .chart-wrapper {
-    height: 250px; /* Reducir altura en móviles */
+    height: 270px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Móviles medianos */
+  .base_de_datos h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .base_de_datos h2 {
+    font-size: 1.3rem;
+  }
+  
+  .chart-card {
+    padding: 18px 15px;
+  }
+  
+  .chart-wrapper {
+    height: 240px;
   }
 }
 
 @media (max-width: 480px) {
+  /* Móviles pequeños */
+  .base_de_datos {
+    padding: 15px 10px;
+    border-radius: 8px;
+  }
+  
   .base_de_datos h1 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
   }
-
+  
   .base_de_datos h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
-
+  
+  .chart-card {
+    padding: 16px 12px;
+    border-radius: 10px;
+  }
+  
+  .chart-header {
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .chart-icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+  }
+  
   .chart-wrapper {
-    height: 200px; /* Altura aún más pequeña para pantallas muy pequeñas */
+    height: 220px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Móviles muy pequeños */
+  .chart-wrapper {
+    height: 200px;
+  }
+  
+  .base_de_datos h1 {
+    font-size: 1.7rem;
   }
 }

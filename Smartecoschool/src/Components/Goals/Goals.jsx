@@ -1,5 +1,5 @@
 import React from "react";
-import contadorLuz from "../../assets/teclado.jpg";
+import contadorLuz from "../../assets/fondo_video.webp";
 import { useTranslation } from "react-i18next";
 import "./Goals.css";
 

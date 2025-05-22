@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Modal from "../Modal/Modal.jsx";
-import monitor from "../../assets/monitor.jpg";
-import raspberryPi from "../../assets/Raspberry_Pi.jpg";
-import camara from "../../assets/camara.jpg";
-import sensorFlujo from "../../assets/sensorflujo.jpg";
-import sensorCorriente from "../../assets/sensorcorriente1.jpg";
-import modulo from "../../assets/modulo.jpg";
+import monitor from "../../assets/monitor.webp";
+import raspberryPi from "../../assets/Raspberry_Pi.webp";
+import camara from "../../assets/camara.webp";
+import sensorFlujo from "../../assets/sensorflujo.webp";
+import sensorCorriente from "../../assets/sensorcorriente1.webp";
+import modulo from "../../assets/modulo.webp";
 import { useTranslation } from "react-i18next";
 import "./Functions.css";
 

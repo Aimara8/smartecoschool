@@ -1,6 +1,6 @@
 import React from "react";
-import LogoGobierno from "../../assets/gobierno_de_canarias.png";
-import LogoInstituto from "../../assets/ies_el_rincon.png";
+import LogoGobierno from "../../assets/gobierno_de_canarias.webp";
+import LogoInstituto from "../../assets/ies_el_rincon.webp";
 import "./Collaborators.css";
 
 const Collaborators = () => {
