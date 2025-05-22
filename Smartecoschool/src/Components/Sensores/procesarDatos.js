@@ -1,16 +1,19 @@
-import { leerLuzData, leerAguaData } from "../../Apis/sensoresAPI";
+import { leerLuzData, leerAguaData, leerTemperaturaData, leerHumedadData } from "../../Apis/sensoresAPI";
 
 export const obtenerDatosSensores = async (id) => {
   try {
     const [agua, luz, temperatura, humedad] = await Promise.all([
       leerAguaData(),
-
       leerLuzData(),
+      leerTemperaturaData(),
+      leerHumedadData(),
     ]);
 
     return {
       agua: procesarDatosDiarios(agua),
       luz: procesarDatosDiarios(luz),
+      temperatura: ordenadorDatos(temperatura),
+      humedad: ordenadorDatos(humedad),
     };
   } catch (error) {
     console.error("Error al obtener los datos de los sensores:", error);

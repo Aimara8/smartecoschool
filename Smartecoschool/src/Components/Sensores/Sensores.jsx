@@ -1,115 +1,116 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Chart, registerables } from "chart.js";
 import { obtenerDatosSensores } from "./procesarDatos";
-import { Line } from "react-chartjs-2";
 import "./Sensores.css";
 
-const Sensores = () => {
-  const [datosFiltrados, setDatosFiltrados] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+Chart.register(...registerables);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const datos = await obtenerDatosSensores();
+const GraficasSensores = () => {
+    const aguaChartRef = useRef(null);
+    const luzChartRef = useRef(null);
+    const aguaCanvasRef = useRef(null);
+    const luzCanvasRef = useRef(null);
+    const [temperatura, setTemperatura] = useState(null);
+    const [humedad, setHumedad] = useState(null);
 
-        // Filtrar los datos directamente desde "datos"
-        const filtrados = ["agua", "luz"].reduce((id, sensor) => {
-          if (datos[sensor]) {
-            id[sensor] = datos[sensor];
-          }
-          return id;
-        }, {});
+    const [error, setError] = useState(null);
 
-        setDatosFiltrados(filtrados);
-      } catch (error) {
-        setError("Error al cargar los datos. Intenta nuevamente más tarde.");
-        console.error("Error al cargar los datos:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    useEffect(() => {
+        const cargarDatos = async () => {
+            try {
+                const datos = await obtenerDatosSensores();
 
-    fetchData();
-  }, []);
+                setTemperatura(datos.temperatura);
+                setHumedad(datos.humedad);
 
-  if (isLoading) return <p>Cargando datos...</p>;
-  if (error) return <p className="error-message">{error}</p>;
+                // Eliminar instancias previas si existen
+                if (aguaChartRef.current) {
+                    aguaChartRef.current.destroy();
+                }
+                if (luzChartRef.current) {
+                    luzChartRef.current.destroy();
+                }
 
-  return (
-    <div className="sensores">
-      <h2>Datos de Sensores</h2>
-      <div className="graficas">
-        {["agua", "luz"].map((sensor) => {
-          // Validar si los datos del sensor están disponibles
-          if (!datosFiltrados || !datosFiltrados[sensor]) {
-            return (
-              <div key={sensor} className="grafica">
-                <h3>{sensor.charAt(0).toUpperCase() + sensor.slice(1)}</h3>
-                <p>No hay datos disponibles para este sensor.</p>
-              </div>
-            );
-          }
-
-          return (
-            <div key={sensor} className="grafica">
-              <h3>{sensor.charAt(0).toUpperCase() + sensor.slice(1)}</h3>
-              <Line
-                data={{
-                  labels: datosFiltrados[sensor].labels,
-                  datasets: [
-                    {
-                      label: `Medidas de ${sensor}`,
-                      data: datosFiltrados[sensor].medidas,
-                      borderColor:
-                        sensor === "agua"
-                          ? "rgba(54, 162, 235, 1)"
-                          : "rgba(75, 192, 192, 1)",
-                      backgroundColor:
-                        sensor === "agua"
-                          ? "rgba(54, 162, 235, 0.2)"
-                          : "rgba(75, 192, 192, 0.2)",
+                // Crear gráfica de Agua
+                aguaChartRef.current = new Chart(aguaCanvasRef.current, {
+                    type: "line",
+                    data: {
+                        labels: datos.agua.labels,
+                        datasets: [
+                            {
+                                label: "Agua (m³)",
+                                data: datos.agua.medidas,
+                                borderColor: "blue",
+                                backgroundColor: "rgba(0, 0, 255, 0.2)",
+                                fill: true,
+                                tension: 0.4,
+                            },
+                        ],
                     },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: {
-                    legend: {
-                      display: true,
-                      position: "top",
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: { display: true, text: "Consumo de Agua" },
+                        },
                     },
-                    title: {
-                      display: true,
-                      text: `Medidas de ${sensor}`,
+                });
+
+                // Crear gráfica de Luz
+                luzChartRef.current = new Chart(luzCanvasRef.current, {
+                    type: "line",
+                    data: {
+                        labels: datos.luz.labels,
+                        datasets: [
+                            {
+                                label: "Luz (intensidad/día)",
+                                data: datos.luz.medidas,
+                                borderColor: "orange",
+                                backgroundColor: "rgba(255, 165, 0, 0.2)",
+                                fill: true,
+                                tension: 0.4,
+                            },
+                        ],
                     },
-                  },
-                  scales: {
-                    y: {
-                      beginAtZero: true,
-                      title: {
-                        display: true,
-                        text: sensor === "agua" ? "m³" : "kWh",
-                      },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: { display: true, text: "Intensidad de Luz" },
+                        },
                     },
-                    x: {
-                      title: {
-                        display: true,
-                        text: "Fecha",
-                      },
-                    },
-                  },
-                }}
-              />
+                });
+            } catch (err) {
+                console.error("Error al cargar los datos:", err);
+                setError("Error al cargar los datos de sensores.");
+            }
+        };
+
+        cargarDatos();
+
+        // Cleanup para evitar múltiples instancias de Chart
+        return () => {
+            if (aguaChartRef.current) aguaChartRef.current.destroy();
+            if (luzChartRef.current) luzChartRef.current.destroy();
+        };
+    }, []);
+
+    if (error) return <p>{error}</p>;
+
+    return (
+        <div className="sensores">
+            <div className="sensores_container">
+                <div className="sensor-agua">
+                    <h2>Gráfica de Agua</h2>
+                    <canvas ref={aguaCanvasRef} />
+                </div>
+
+                <div className="sensor-luz">
+                    <h2>Gráfica de Luz</h2>
+                    <canvas ref={luzCanvasRef} />
+                </div>
             </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+            <p>Temperatura: {temperatura.medidas}</p>
+        </div>
+    );
 };
 
-export default Sensores;
+export default GraficasSensores;
