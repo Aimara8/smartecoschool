@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
 import { obtenerDatosSensores } from "./procesarDatos";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTemperatureHigh, faTint, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import "./Sensores.css";
 
 Chart.register(...registerables);
@@ -10,8 +12,8 @@ const GraficasSensores = () => {
     const luzChartRef = useRef(null);
     const aguaCanvasRef = useRef(null);
     const luzCanvasRef = useRef(null);
-    const [temperatura, setTemperatura] = useState({medidas: "Cargando..."});
-    const [humedad, setHumedad] = useState({medidas: "Cargando..."});
+    const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
+    const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
 
     const [error, setError] = useState(null);
 
@@ -99,18 +101,26 @@ const GraficasSensores = () => {
         <div className="sensores">
             <div className="sensores_container">
                 <div className="sensor-agua">
-                    <h2>Gráfica de Agua</h2>
+                    <h2><FontAwesomeIcon icon={faTint} /> Gráfica de Agua</h2>
                     <canvas ref={aguaCanvasRef} />
                 </div>
 
                 <div className="sensor-luz">
-                    <h2>Gráfica de Luz</h2>
+                    <h2><FontAwesomeIcon icon={faLightbulb} /> Gráfica de Luz</h2>
                     <canvas ref={luzCanvasRef} />
                 </div>
             </div>
             <div className="sensor-temp-hum">
-                <p>Temperatura: {temperatura.medidas} Cº</p>
-                <p>Humedad: {humedad.medidas} %</p>
+                {!temperatura || temperatura.medidas === undefined ? (
+                    <p><FontAwesomeIcon icon={faTemperatureHigh} /> No se detectó temperatura</p>
+                ) : (
+                    <p><FontAwesomeIcon icon={faTemperatureHigh} /> Temperatura:  {temperatura.medidas} Cº</p>
+                )}
+                {!humedad || humedad.medidas === undefined ? (
+                    <p><FontAwesomeIcon icon={faTint} /> No se detectó humedad</p>
+                ) : (
+                    <p><FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %</p>
+                )}
             </div>
         </div>
     );

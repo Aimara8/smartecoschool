@@ -37,9 +37,47 @@
     height: auto !important;
 }
 
+/* Estilos para la temperatura y la humedad */
+
+/* Estilos para las tarjetas de temperatura y humedad */
+.sensor-temp-hum {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.sensor-temp-hum p {
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+}
+
+.sensor-temp-hum p:first-child {
+    border-top: 3px solid #ff5252; /* Borde rojo para temperatura */
+}
+
+.sensor-temp-hum p:last-child {
+    border-top: 3px solid #4285f4; /* Borde azul para humedad */
+}
+
 /* Para dispositivos móviles */
 @media (max-width: 768px) {
     .sensores_container {
         flex-direction: column;
+    }
+    .sensor-temp-hum {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sensor-temp-hum p {
+        width: 100%;
     }
 }
