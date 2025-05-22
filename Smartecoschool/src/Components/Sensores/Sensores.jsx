@@ -10,8 +10,8 @@ const GraficasSensores = () => {
     const luzChartRef = useRef(null);
     const aguaCanvasRef = useRef(null);
     const luzCanvasRef = useRef(null);
-    const [temperatura, setTemperatura] = useState(null);
-    const [humedad, setHumedad] = useState(null);
+    const [temperatura, setTemperatura] = useState({medidas: "Cargando..."});
+    const [humedad, setHumedad] = useState({medidas: "Cargando..."});
 
     const [error, setError] = useState(null);
 
