@@ -1,22 +1,21 @@
-//npm install tailwindcss @tailwindcss/vite
-import React from 'react';
-import './Collaborators.css'
-import LogoGobierno from '../../assets/gobierno_de_canarias.webp'; // Ruta al logo 1
-import LogoInstituto from '../../assets/ies_el_rincon.webp'; // Ruta al logo 2
+import React from "react";
+import LogoGobierno from "../../assets/gobierno_de_canarias.webp";
+import LogoInstituto from "../../assets/ies_el_rincon.webp";
+import "./Collaborators.css";
 
 const Collaborators = () => {
   // Datos de colaboradores/patrocinadores
   const collaborators = [
     {
       name: "Gobierno de Canarias",
-      logo: LogoGobierno, // URL del logo
-      link: "https://www.gobiernodecanarias.org/principal/" // Enlace al sitio web
+      logo: LogoGobierno,
+      link: "https://www.gobiernodecanarias.org/principal/",
     },
     {
       name: "IES El Ricón",
-      logo: LogoInstituto, // URL del logo
-      link: "https://ieselrincon.es/" // Enlace al sitio web
-    }
+      logo: LogoInstituto,
+      link: "https://ieselrincon.es/",
+    },
   ];
 
   return (
