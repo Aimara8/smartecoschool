@@ -108,7 +108,10 @@ const GraficasSensores = () => {
                     <canvas ref={luzCanvasRef} />
                 </div>
             </div>
-            <p>Temperatura: {temperatura.medidas}</p>
+            <div className="sensor-temp-hum">
+                <p>Temperatura: {temperatura.medidas} Cº</p>
+                <p>Humedad: {humedad.medidas} %</p>
+            </div>
         </div>
     );
 };
