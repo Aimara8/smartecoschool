@@ -63,6 +63,10 @@
     border-top: 3px solid #ff5252; /* Borde rojo para temperatura */
 }
 
+.sensor-temp-hum p:nth-child(2){
+    border-top: 3px solid #4285f4; /* Borde azul para humedad */
+}
+
 .sensor-temp-hum p:last-child {
     border-top: 3px solid #4285f4; /* Borde azul para humedad */
 }
