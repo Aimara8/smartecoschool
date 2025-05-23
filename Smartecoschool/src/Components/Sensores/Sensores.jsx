@@ -20,6 +20,7 @@ const GraficasSensores = () => {
   const luzCanvasRef = useRef(null);
   const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
   const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
+  //const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const GraficasSensores = () => {
 
         setTemperatura(datos.temperatura);
         setHumedad(datos.humedad);
+        //setDioxido(datos.dioxido)
 
         // Eliminar instancias previas si existen
         if (aguaChartRef.current) {

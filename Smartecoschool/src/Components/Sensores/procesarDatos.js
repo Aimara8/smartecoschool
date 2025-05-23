@@ -7,6 +7,7 @@ export const obtenerDatosSensores = async (id) => {
       leerLuzData(),
       leerTemperaturaData(),
       leerHumedadData(),
+      //leerCo2Data(),
     ]);
 
     return {
@@ -14,6 +15,7 @@ export const obtenerDatosSensores = async (id) => {
       luz: procesarDatosDiarios(luz),
       temperatura: ordenadorDatos(temperatura),
       humedad: ordenadorDatos(humedad),
+      //dioxido : ordenadorDatos(dioxido)
     };
   } catch (error) {
     console.error("Error al obtener los datos de los sensores:", error);
