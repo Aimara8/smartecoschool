@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
 import { obtenerDatosSensores } from "./procesarDatos";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTemperatureHigh, faTint, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faTemperatureHigh, faWater, faTint, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import "./Sensores.css";
 
 Chart.register(...registerables);
@@ -117,7 +117,7 @@ const GraficasSensores = () => {
                     <p><FontAwesomeIcon icon={faTemperatureHigh} /> Temperatura:  {temperatura.medidas} Cº</p>
                 )}
                 {!humedad || humedad.medidas === undefined ? (
-                    <p><FontAwesomeIcon icon={faTint} /> No se detectó humedad</p>
+                    <p><FontAwesomeIcon icon={faWater} /> No se detectó humedad</p>
                 ) : (
                     <p><FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %</p>
                 )}
