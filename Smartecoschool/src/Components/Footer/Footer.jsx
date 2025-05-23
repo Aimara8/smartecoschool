@@ -1,6 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Facebook, Tiktok, Github, Instagram, Twiter } from "../SVG/SVG";
+import {
+  Facebook,
+  Tiktok,
+  Github,
+  Instagram,
+  Twiter,
+} from "../../assets/SVG/SVG";
 import "./Footer.css";
 
 const Footer = () => {

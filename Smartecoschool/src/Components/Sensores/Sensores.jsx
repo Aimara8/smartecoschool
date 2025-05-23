@@ -1,155 +1,165 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
 import { obtenerDatosSensores } from "./procesarDatos";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTemperatureHigh, faWater, faTint, faLightbulb, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTemperatureHigh,
+  faWater,
+  faTint,
+  faLightbulb,
+  faCloud,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Sensores.css";
 
 Chart.register(...registerables);
 
 const GraficasSensores = () => {
-    const aguaChartRef = useRef(null);
-    const luzChartRef = useRef(null);
-    const aguaCanvasRef = useRef(null);
-    const luzCanvasRef = useRef(null);
-    const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
-    const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
+  const aguaChartRef = useRef(null);
+  const luzChartRef = useRef(null);
+  const aguaCanvasRef = useRef(null);
+  const luzCanvasRef = useRef(null);
+  const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
+  const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
+  const [error, setError] = useState(null);
 
-    let labels = " "
-    let data = 0
+  useEffect(() => {
+    const cargarDatos = async () => {
+      try {
+        const datos = await obtenerDatosSensores();
 
-    const [error, setError] = useState(null);
+        setTemperatura(datos.temperatura);
+        setHumedad(datos.humedad);
 
-    useEffect(() => {
-        const cargarDatos = async () => {
-            try {
-                const datos = await obtenerDatosSensores();
+        // Eliminar instancias previas si existen
+        if (aguaChartRef.current) {
+          aguaChartRef.current.destroy();
+        }
+        if (luzChartRef.current) {
+          luzChartRef.current.destroy();
+        }
 
-                setTemperatura(datos.temperatura);
-                setHumedad(datos.humedad);
+        const maxPuntos = 7;
 
-                // Eliminar instancias previas si existen
-                if (aguaChartRef.current) {
-                    aguaChartRef.current.destroy();
-                }
-                if (luzChartRef.current) {
-                    luzChartRef.current.destroy();
-                }
+        // Crear gráfica de Agua
+        if (datos.agua && datos.agua.labels && datos.agua.medidas) {
+          const labelsAgua = datos.agua.labels.slice(-maxPuntos);
+          const dataAgua = datos.agua.medidas.slice(-maxPuntos);
 
-                const maxPuntos = 7;
-                if (datos.agua.length >= maxPuntos) {
-                    labels = datos.agua.labels.slice(-maxPuntos);
-                    data = datos.agua.medidas.slice(-maxPuntos);
-                }else{
-                    labels = datos.agua.labels;
-                    data = datos.agua.medidas;
-                }
+          aguaChartRef.current = new Chart(aguaCanvasRef.current, {
+            type: "line",
+            data: {
+              labels: labelsAgua,
+              datasets: [
+                {
+                  label: "Agua (m³)",
+                  data: dataAgua,
+                  borderColor: "blue",
+                  backgroundColor: "rgba(0, 0, 255, 0.2)",
+                  fill: true,
+                  tension: 0.4,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                title: { display: true, text: "Consumo de Agua" },
+              },
+            },
+          });
+        }
 
+        // Crear gráfica de luz
+        if (datos.luz && datos.luz.labels && datos.luz.medidas) {
+          const labelsLuz = datos.luz.labels.slice(-maxPuntos);
+          const dataLuz = datos.luz.medidas.slice(-maxPuntos);
 
-                // Crear gráfica de Agua
-                aguaChartRef.current = new Chart(aguaCanvasRef.current, {
-                    type: "line",
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: "Agua (m³)",
-                                data: data,
-                                borderColor: "blue",
-                                backgroundColor: "rgba(0, 0, 255, 0.2)",
-                                fill: true,
-                                tension: 0.4,
-                            },
-                        ],
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            title: { display: true, text: "Consumo de Agua" },
-                        },
-                    },
-                });
+          luzChartRef.current = new Chart(luzCanvasRef.current, {
+            type: "line",
+            data: {
+              labels: labelsLuz,
+              datasets: [
+                {
+                  label: "Luz (intensidad/día)",
+                  data: dataLuz,
+                  borderColor: "orange",
+                  backgroundColor: "rgba(255, 165, 0, 0.2)",
+                  fill: true,
+                  tension: 0.4,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                title: { display: true, text: "Intensidad de Luz" },
+              },
+            },
+          });
+        }
+      } catch (err) {
+        console.error("Error al cargar los datos:", err);
+        setError("Error al cargar los datos de sensores.");
+      }
+    };
 
-                if (datos.luz.length >= maxPuntos) {
-                    labels = datos.luz.labels.slice(-maxPuntos);
-                    data = datos.luz.medidas.slice(-maxPuntos);
-                }else{
-                    labels = datos.luz.labels;
-                    data = datos.luz.medidas;
-                }
+    cargarDatos();
 
-                // Crear gráfica de Luz
-                luzChartRef.current = new Chart(luzCanvasRef.current, {
-                    type: "line",
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: "Luz (intensidad/día)",
-                                data: data,
-                                borderColor: "orange",
-                                backgroundColor: "rgba(255, 165, 0, 0.2)",
-                                fill: true,
-                                tension: 0.4,
-                            },
-                        ],
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            title: { display: true, text: "Intensidad de Luz" },
-                        },
-                    },
-                });
-            } catch (err) {
-                console.error("Error al cargar los datos:", err);
-                setError("Error al cargar los datos de sensores.");
-            }
-        };
+    // Cleanup para evitar múltiples instancias de Chart
+    return () => {
+      if (aguaChartRef.current) aguaChartRef.current.destroy();
+      if (luzChartRef.current) luzChartRef.current.destroy();
+    };
+  }, []);
 
-        cargarDatos();
+  if (error) return <p>{error}</p>;
 
-        // Cleanup para evitar múltiples instancias de Chart
-        return () => {
-            if (aguaChartRef.current) aguaChartRef.current.destroy();
-            if (luzChartRef.current) luzChartRef.current.destroy();
-        };
-    }, []);
+  return (
+    <div className="sensores">
+      <div className="sensores_container">
+        <div className="sensor-agua">
+          <h2>
+            <FontAwesomeIcon icon={faTint} /> Gráfica de Agua
+          </h2>
+          <canvas ref={aguaCanvasRef} />
+        </div>
 
-    if (error) return <p>{error}</p>;
-
-    return (
-        <div className="sensores">
-            <div className="sensores_container">
-                <div className="sensor-agua">
-                    <h2><FontAwesomeIcon icon={faTint} /> Gráfica de Agua</h2>
-                    <canvas ref={aguaCanvasRef} />
-                </div>
-
-                <div className="sensor-luz">
-                    <h2><FontAwesomeIcon icon={faLightbulb} /> Gráfica de Luz</h2>
-                    <canvas ref={luzCanvasRef} />
-                </div>
-            </div>
-            <div className="sensor-temp-hum">
-                {!temperatura || temperatura.medidas === undefined ? (
-                    <p><FontAwesomeIcon icon={faTemperatureHigh} /> No se detectó temperatura</p>
-                ) : (
-                    <p><FontAwesomeIcon icon={faTemperatureHigh} /> Temperatura:  {temperatura.medidas} Cº</p>
-                )}
-                {!humedad || humedad.medidas === undefined ? (
-                    <p><FontAwesomeIcon icon={faWater} /> No se detectó humedad</p>
-                ) : (
-                    <p><FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %</p>
-                )}
-                {/* {!dioxido || dioxido.medidas === undefined ? (
+        <div className="sensor-luz">
+          <h2>
+            <FontAwesomeIcon icon={faLightbulb} /> Gráfica de Luz
+          </h2>
+          <canvas ref={luzCanvasRef} />
+        </div>
+      </div>
+      <div className="sensor-temp-hum">
+        {!temperatura || temperatura.medidas === undefined ? (
+          <p>
+            <FontAwesomeIcon icon={faTemperatureHigh} /> No se detectó
+            temperatura
+          </p>
+        ) : (
+          <p>
+            <FontAwesomeIcon icon={faTemperatureHigh} /> Temperatura:{" "}
+            {temperatura.medidas} Cº
+          </p>
+        )}
+        {!humedad || humedad.medidas === undefined ? (
+          <p>
+            <FontAwesomeIcon icon={faWater} /> No se detectó humedad
+          </p>
+        ) : (
+          <p>
+            <FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %
+          </p>
+        )}
+        {/* {!dioxido || dioxido.medidas === undefined ? (
                     <p><FontAwesomeIcon icon={faWater} /> No se detectó Co2</p>
                 ) : (
                     <p><FontAwesomeIcon icon={faTint} /> Co2: {dioxido.medidas} ppm</p>
                 )} */}
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default GraficasSensores;

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
-import { Menu } from '../SVG/SVG';
-import logo from '../../assets/logo.webp';
-import { useTranslation } from 'react-i18next';
-import './Navbar.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-scroll";
+import { Menu } from "../../assets/SVG/SVG";
+import logo from "../../assets/logo.webp";
+import { useTranslation } from "react-i18next";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -96,7 +96,7 @@ const Navbar = () => {
       </div>
 
       {/* Ícono del menú */}
-      <Menu className='menu-icon' openMenu={ToggleMenu} />
+      <Menu className="menu-icon" openMenu={ToggleMenu} />
     </nav>
   );
 };
