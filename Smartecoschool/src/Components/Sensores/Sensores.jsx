@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
 import { obtenerDatosSensores } from "./procesarDatos";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTemperatureHigh, faWater, faTint, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faTemperatureHigh, faWater, faTint, faLightbulb, faCloud } from '@fortawesome/free-solid-svg-icons';
 import "./Sensores.css";
 
 Chart.register(...registerables);
@@ -14,6 +14,9 @@ const GraficasSensores = () => {
     const luzCanvasRef = useRef(null);
     const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
     const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
+
+    let labels = " "
+    let data = 0
 
     const [error, setError] = useState(null);
 
@@ -33,15 +36,25 @@ const GraficasSensores = () => {
                     luzChartRef.current.destroy();
                 }
 
+                const maxPuntos = 7;
+                if (datos.agua.length >= maxPuntos) {
+                    labels = datos.agua.labels.slice(-maxPuntos);
+                    data = datos.agua.medidas.slice(-maxPuntos);
+                }else{
+                    labels = datos.agua.labels;
+                    data = datos.agua.medidas;
+                }
+
+
                 // Crear gráfica de Agua
                 aguaChartRef.current = new Chart(aguaCanvasRef.current, {
                     type: "line",
                     data: {
-                        labels: datos.agua.labels,
+                        labels: labels,
                         datasets: [
                             {
                                 label: "Agua (m³)",
-                                data: datos.agua.medidas,
+                                data: data,
                                 borderColor: "blue",
                                 backgroundColor: "rgba(0, 0, 255, 0.2)",
                                 fill: true,
@@ -57,15 +70,23 @@ const GraficasSensores = () => {
                     },
                 });
 
+                if (datos.luz.length >= maxPuntos) {
+                    labels = datos.luz.labels.slice(-maxPuntos);
+                    data = datos.luz.medidas.slice(-maxPuntos);
+                }else{
+                    labels = datos.luz.labels;
+                    data = datos.luz.medidas;
+                }
+
                 // Crear gráfica de Luz
                 luzChartRef.current = new Chart(luzCanvasRef.current, {
                     type: "line",
                     data: {
-                        labels: datos.luz.labels,
+                        labels: labels,
                         datasets: [
                             {
                                 label: "Luz (intensidad/día)",
-                                data: datos.luz.medidas,
+                                data: data,
                                 borderColor: "orange",
                                 backgroundColor: "rgba(255, 165, 0, 0.2)",
                                 fill: true,
@@ -121,6 +142,11 @@ const GraficasSensores = () => {
                 ) : (
                     <p><FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %</p>
                 )}
+                {/* {!dioxido || dioxido.medidas === undefined ? (
+                    <p><FontAwesomeIcon icon={faWater} /> No se detectó Co2</p>
+                ) : (
+                    <p><FontAwesomeIcon icon={faTint} /> Co2: {dioxido.medidas} ppm</p>
+                )} */}
             </div>
         </div>
     );

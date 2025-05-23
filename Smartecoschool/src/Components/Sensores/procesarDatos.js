@@ -60,7 +60,7 @@ export const procesarDatosDiarios = (data) => {
   // Calcular el medidas diario
   const medidasDiario = datosDiarios.map((item, index) => {
     if (index === 0) {
-      return { fecha: item.fecha, medidasDiario: 0 }; // El primer día no tiene medidas diario
+      return { fecha: item.fecha, medidasDiario: item.medidas };
     } else {
       const medidasAnterior = datosDiarios[index - 1].medidas;
       return {
