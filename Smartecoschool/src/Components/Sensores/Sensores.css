@@ -68,7 +68,7 @@
 }
 
 .sensor-temp-hum p:last-child {
-    border-top: 3px solid #4285f4; /* Borde azul para humedad */
+    border-top: 3px solid #000000; /* Borde negro para el dióxido */
 }
 
 /* Para dispositivos móviles */

@@ -7,7 +7,7 @@ import {
   faWater,
   faTint,
   faLightbulb,
-  faCloud,
+  faLeaf,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sensores.css";
 
@@ -20,7 +20,7 @@ const GraficasSensores = () => {
   const luzCanvasRef = useRef(null);
   const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
   const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
-  //const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
+  const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const GraficasSensores = () => {
 
         setTemperatura(datos.temperatura);
         setHumedad(datos.humedad);
-        //setDioxido(datos.dioxido)
+        setDioxido(datos.dioxido)
 
         // Eliminar instancias previas si existen
         if (aguaChartRef.current) {
@@ -154,11 +154,11 @@ const GraficasSensores = () => {
             <FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %
           </p>
         )}
-        {/* {!dioxido || dioxido.medidas === undefined ? (
-                    <p><FontAwesomeIcon icon={faWater} /> No se detectó Co2</p>
-                ) : (
-                    <p><FontAwesomeIcon icon={faTint} /> Co2: {dioxido.medidas} ppm</p>
-                )} */}
+        {!dioxido || dioxido.medidas === undefined ? (
+          <p><FontAwesomeIcon icon={faLeaf} /> No se detectó Co2</p>
+        ) : (
+          <p><FontAwesomeIcon icon={faLeaf} /> Co2: {dioxido.medidas} ppm</p>
+        )}
       </div>
     </div>
   );
