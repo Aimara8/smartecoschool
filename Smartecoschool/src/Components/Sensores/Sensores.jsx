@@ -101,7 +101,7 @@ const GraficasSensores = () => {
     cargarDatos();
 
     // Establecer intervalo para recarga automática
-    intervalId = setInterval(cargarDatos, 30000); // 30 segundos
+    intervalId = setInterval(cargarDatos, 60000); // 60 segundos
 
     // Limpieza
     return () => {
