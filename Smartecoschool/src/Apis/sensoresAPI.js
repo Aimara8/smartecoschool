@@ -2,7 +2,7 @@
 export async function leerAguaData() {
   try {
     const res = await fetch(
-      "http://escritorios.ieselrincon.es:3306/api/medidas/sensor/2"
+      "/api/medidas/sensor/2"
     );
 
     if (!res.ok) {
@@ -20,7 +20,7 @@ export async function leerAguaData() {
 export async function leerLuzData() {
   try {
     const res = await fetch(
-      "http://escritorios.ieselrincon.es:3306/api/medidas/sensor/1"
+      "/api/medidas/sensor/1"
     );
 
     if (!res.ok) {
@@ -38,7 +38,7 @@ export async function leerLuzData() {
 export async function leerTemperaturaData() {
   try {
     const res = await fetch(
-      "http://escritorios.ieselrincon.es:3306/api/medidas/sensor/5"
+      "/api/medidas/sensor/5"
     );
 
     if (!res.ok) {
@@ -56,7 +56,7 @@ export async function leerTemperaturaData() {
 export async function leerHumedadData() {
   try {
     const res = await fetch(
-      "http://escritorios.ieselrincon.es:3306/api/medidas/sensor/6"
+      "/api/medidas/sensor/6"
     );
 
     if (!res.ok) {
@@ -74,7 +74,7 @@ export async function leerHumedadData() {
 export async function leerCo2Data() {
   try {
     const res = await fetch(
-      "http://escritorios.ieselrincon.es:3306/api/medidas/sensor/7"
+      "/api/medidas/sensor/7"
     );
 
     if (!res.ok) {
