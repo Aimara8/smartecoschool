@@ -24,25 +24,21 @@ const GraficasSensores = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let intervalId;
+
     const cargarDatos = async () => {
       try {
         const datos = await obtenerDatosSensores();
 
         setTemperatura(datos.temperatura);
         setHumedad(datos.humedad);
-        setDioxido(datos.dioxido)
+        setDioxido(datos.dioxido);
 
-        // Eliminar instancias previas si existen
-        if (aguaChartRef.current) {
-          aguaChartRef.current.destroy();
-        }
-        if (luzChartRef.current) {
-          luzChartRef.current.destroy();
-        }
+        if (aguaChartRef.current) aguaChartRef.current.destroy();
+        if (luzChartRef.current) luzChartRef.current.destroy();
 
         const maxPuntos = 7;
 
-        // Crear gráfica de Agua
         if (datos.agua && datos.agua.labels && datos.agua.medidas) {
           const labelsAgua = datos.agua.labels.slice(-maxPuntos);
           const dataAgua = datos.agua.medidas.slice(-maxPuntos);
@@ -51,16 +47,14 @@ const GraficasSensores = () => {
             type: "line",
             data: {
               labels: labelsAgua,
-              datasets: [
-                {
-                  label: "Agua (m³)",
-                  data: dataAgua,
-                  borderColor: "blue",
-                  backgroundColor: "rgba(0, 0, 255, 0.2)",
-                  fill: true,
-                  tension: 0.4,
-                },
-              ],
+              datasets: [{
+                label: "Agua (m³)",
+                data: dataAgua,
+                borderColor: "blue",
+                backgroundColor: "rgba(0, 0, 255, 0.2)",
+                fill: true,
+                tension: 0.4,
+              }],
             },
             options: {
               responsive: true,
@@ -71,7 +65,6 @@ const GraficasSensores = () => {
           });
         }
 
-        // Crear gráfica de luz
         if (datos.luz && datos.luz.labels && datos.luz.medidas) {
           const labelsLuz = datos.luz.labels.slice(-maxPuntos);
           const dataLuz = datos.luz.medidas.slice(-maxPuntos);
@@ -80,16 +73,14 @@ const GraficasSensores = () => {
             type: "line",
             data: {
               labels: labelsLuz,
-              datasets: [
-                {
-                  label: "Luz (intensidad/día)",
-                  data: dataLuz,
-                  borderColor: "orange",
-                  backgroundColor: "rgba(255, 165, 0, 0.2)",
-                  fill: true,
-                  tension: 0.4,
-                },
-              ],
+              datasets: [{
+                label: "Luz (intensidad/día)",
+                data: dataLuz,
+                borderColor: "orange",
+                backgroundColor: "rgba(255, 165, 0, 0.2)",
+                fill: true,
+                tension: 0.4,
+              }],
             },
             options: {
               responsive: true,
@@ -99,20 +90,27 @@ const GraficasSensores = () => {
             },
           });
         }
+
       } catch (err) {
         console.error("Error al cargar los datos:", err);
         setError("Error al cargar los datos de sensores.");
       }
     };
 
+    // Llamada inicial
     cargarDatos();
 
-    // Cleanup para evitar múltiples instancias de Chart
+    // Establecer intervalo para recarga automática
+    intervalId = setInterval(cargarDatos, 30000); // 30 segundos
+
+    // Limpieza
     return () => {
+      clearInterval(intervalId);
       if (aguaChartRef.current) aguaChartRef.current.destroy();
       if (luzChartRef.current) luzChartRef.current.destroy();
     };
   }, []);
+
 
   if (error) return <p>{error}</p>;
 
