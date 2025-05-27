@@ -74,7 +74,7 @@ export async function leerHumedadData() {
 export async function leerCo2Data() {
   try {
     const res = await fetch(
-      "/api/medidas/sensor/7"
+      "/api/medidas/sensor/8"
     );
 
     if (!res.ok) {
