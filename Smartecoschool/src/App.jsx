@@ -23,8 +23,6 @@ function App() {
     <Router>
       <div>
         <Routes>
-          {" "}
-          {/* Cambia Switch por Routes */}
           <Route
             path="/"
             element={
