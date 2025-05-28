@@ -2,7 +2,7 @@
 export async function leerAguaData() {
   try {
     const res = await fetch(
-      `${process.env.VITE_ENDPOINT}/2`
+      `${import.meta.env.VITE_ENDPOINT}/2`
     );
 
     if (!res.ok) {
@@ -20,7 +20,7 @@ export async function leerAguaData() {
 export async function leerLuzData() {
   try {
     const res = await fetch(
-      `${process.env.VITE_ENDPOINT}/1`
+      `${import.meta.env.VITE_ENDPOINT}/1`
     );
 
     if (!res.ok) {
@@ -38,7 +38,7 @@ export async function leerLuzData() {
 export async function leerTemperaturaData() {
   try {
     const res = await fetch(
-      `${process.env.VITE_ENDPOINT}/5`
+      `${import.meta.env.VITE_ENDPOINT}/5`
     );
 
     if (!res.ok) {
@@ -56,7 +56,7 @@ export async function leerTemperaturaData() {
 export async function leerHumedadData() {
   try {
     const res = await fetch(
-      `${process.env.VITE_ENDPOINT}/6`
+      `${import.meta.env.VITE_ENDPOINT}/6`
     );
 
     if (!res.ok) {
@@ -74,7 +74,7 @@ export async function leerHumedadData() {
 export async function leerCo2Data() {
   try {
     const res = await fetch(
-      `${process.env.VITE_ENDPOINT}/8`
+      `${import.meta.env.VITE_ENDPOINT}/8`
     );
 
     if (!res.ok) {
