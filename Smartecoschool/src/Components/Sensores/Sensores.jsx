@@ -74,7 +74,7 @@ const GraficasSensores = () => {
             data: {
               labels: labelsLuz,
               datasets: [{
-                label: "Luz (intensidad/día)",
+                label: "Luz (kWh)",
                 data: dataLuz,
                 borderColor: "orange",
                 backgroundColor: "rgba(255, 165, 0, 0.2)",
