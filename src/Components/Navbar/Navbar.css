@@ -1,0 +1,122 @@
+nav {
+    width: 100%;
+    color: #fff;
+    padding: 4px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.logo {
+    width: 70px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 18px;
+}
+
+.dark-nav {
+    background-color: #29a021;
+    transition: 0.5s;
+}
+
+.btn-lang {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 5px 12px;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-lang.es,
+.btn-lang.en {
+    background-color: #fff;
+    color: #29a021;
+}
+
+/* Estilos para los botones de idioma en móvil */
+.show-lang-buttons {
+    display: flex;
+    position: fixed;
+    top: 650px;
+    right: 40px;
+    opacity: 1;
+    /* Asegúrate de que la opacidad sea 1 cuando se muestre */
+    visibility: visible;
+    /* Asegúrate de que sea visible */
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    /* Añade transiciones para opacidad y visibilidad */
+}
+
+/*-----Media Query-----*/
+
+@media (max-width: 1000px) {
+    .logo {
+        width: 50px;
+    }
+
+    nav ul li {
+        margin: 10px 15px;
+    }
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 1353px) {
+    nav {
+        padding: 15px 0;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #29a021;
+        z-index: -1;
+        width: 200px;
+        padding-top: 70px;
+        transition: 0.5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 25px 40px;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .hide-lang-buttons {
+        position: fixed;
+        top: 550px;
+        right: -200px;
+        /* Mantén la posición fuera de la vista */
+        opacity: 0;
+        /* Asegúrate de que la opacidad sea 0 cuando se oculte */
+        visibility: hidden;
+        /* Asegúrate de que no sea visible */
+        transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+        /* Añade transiciones para opacidad y visibilidad */
+    }
+
+    .hide-mobile-menu {
+        right: -200px;
+    }
+}
