@@ -10,6 +10,7 @@ import {
   faLeaf,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sensores.css";
+import { useNavigate } from "react-router-dom";
 
 Chart.register(...registerables);
 
@@ -22,6 +23,8 @@ const GraficasSensores = () => {
   const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
   const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     let intervalId;
@@ -93,7 +96,7 @@ const GraficasSensores = () => {
 
       } catch (err) {
         console.error("Error al cargar los datos:", err);
-        setError("Error al cargar los datos de sensores.");
+        navigate("/error");
       }
     };
 

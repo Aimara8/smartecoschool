@@ -13,6 +13,7 @@ import Collaborators from "./Components/Collaborators/Collaborators";
 import Goals from "./Components/Goals/Goals";
 import { useTranslation } from "react-i18next";
 import Sensores from "./Components/Sensores/Sensores";
+import ErrorPage from "./Pages/Error/ErrorPage";
 
 function App() {
   const [playerState, setPlayerState] = useState(false);
@@ -61,6 +62,7 @@ function App() {
             }
           />
           <Route path="/sensores" element={<Sensores />} />
+          <Route path="/error" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>
