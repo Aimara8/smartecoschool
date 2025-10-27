@@ -46,17 +46,25 @@ nav ul li {
 }
 
 /* Estilos para los botones de idioma en móvil */
-.show-lang-buttons {
+.show-lang-buttons,
+.hide-lang-buttons {
     display: flex;
     position: fixed;
-    top: 650px;
+    bottom: 40px;   /* misma posición vertical siempre */
     right: 40px;
+    transition: transform 0.45s ease, opacity 0.45s ease, visibility 0.45s;
+}
+
+.show-lang-buttons {
+    transform: translateX(0);
     opacity: 1;
-    /* Asegúrate de que la opacidad sea 1 cuando se muestre */
     visibility: visible;
-    /* Asegúrate de que sea visible */
-    transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
-    /* Añade transiciones para opacidad y visibilidad */
+}
+
+.hide-lang-buttons {
+    transform: translateX(220px); /* desplaza fuera de pantalla sin tocar top */
+    opacity: 0;
+    visibility: hidden;
 }
 
 /*-----Media Query-----*/
@@ -103,17 +111,26 @@ nav ul li {
         cursor: pointer;
     }
 
+    .show-lang-buttons {
+        /* asegurar posición y control visual en móvil */
+        bottom: 40px;
+        right: 40px;
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        z-index: 20;
+        transition: transform 0.45s ease, opacity 0.45s ease, visibility 0.45s;
+    }
+
     .hide-lang-buttons {
-        position: fixed;
-        top: 550px;
-        right: -200px;
-        /* Mantén la posición fuera de la vista */
+        /* mantener la misma referencia vertical y desplazar con transform */
+        bottom: 40px;
+        right: 40px;
+        transform: translateX(220px);
         opacity: 0;
-        /* Asegúrate de que la opacidad sea 0 cuando se oculte */
         visibility: hidden;
-        /* Asegúrate de que no sea visible */
-        transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
-        /* Añade transiciones para opacidad y visibilidad */
+        z-index: 20;
+        transition: transform 0.45s ease, opacity 0.45s ease, visibility 0.45s;
     }
 
     .hide-mobile-menu {
