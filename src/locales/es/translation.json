@@ -103,5 +103,8 @@
   "footer": {
     "rights": "Todos los derechos reservados"
   },
-  "participants" : "Participantes"
+  "participants" : "Participantes",
+  "loading": {
+    "message": "Cargando"
+  }
 }

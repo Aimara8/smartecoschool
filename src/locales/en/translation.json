@@ -102,5 +102,8 @@
   "footer": {
     "rights": "All rights reserved"
   },
-  "participants":"Participants"
+  "participants":"Participants",
+  "loading": {
+    "message": "Loading"
+  }
 }
