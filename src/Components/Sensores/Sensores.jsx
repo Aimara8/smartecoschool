@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sensores.css";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 Chart.register(...registerables);
 
@@ -23,6 +24,7 @@ const GraficasSensores = () => {
   const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
   const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -30,6 +32,7 @@ const GraficasSensores = () => {
     let intervalId;
 
     const cargarDatos = async () => {
+      setLoading(true);
       try {
         const datos = await obtenerDatosSensores();
 
@@ -97,6 +100,8 @@ const GraficasSensores = () => {
       } catch (err) {
         console.error("Error al cargar los datos:", err);
         navigate("/error");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -120,7 +125,13 @@ const GraficasSensores = () => {
   return (
     <div className="sensores">
       <div className="sensores_container">
+
         <div className="sensor-agua">
+          {loading && (
+            <div className="chart-loading">
+              <Loading message="Cargando gráfica de agua..." />
+            </div>
+          )}
           <h2>
             <FontAwesomeIcon icon={faTint} /> Gráfica de Agua
           </h2>
@@ -128,6 +139,11 @@ const GraficasSensores = () => {
         </div>
 
         <div className="sensor-luz">
+          {loading && (
+            <div className="chart-loading">
+              <Loading message="Cargando gráfica de luz..." />
+            </div>
+          )}
           <h2>
             <FontAwesomeIcon icon={faLightbulb} /> Gráfica de Luz
           </h2>

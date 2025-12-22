@@ -15,6 +15,7 @@
     gap: 20px;
     min-width: 80%;
     margin: 0 auto;
+    position: relative; /* contenedor de referencia para el overlay */
 }
 
 /* Estilos para la temperatura y la humedad */
@@ -33,11 +34,35 @@
     margin-bottom: 15px;
 }
 
-.sensor-agua canvas, .sensor-luz canvas {
-    width: 100% !important;
-    height: auto !important;
+/* Contenedores de cada gráfica como referencia para el overlay */
+.sensor-agua,
+.sensor-luz {
+  position: relative;
+  background: transparent;
+  padding: 8px;
+  border-radius: 6px;
 }
 
+/* Overlay centrado por cada gráfica */
+.chart-loading {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.65);
+  z-index: 20;
+  pointer-events: all; /* evita interacciones con la gráfica mientras carga */
+  border-radius: 6px;
+}
+
+/* Ajustes opcionales para el canvas */
+.sensor-agua canvas,
+.sensor-luz canvas {
+  width: 100% !important;
+  height: 260px !important; /* ajustar según diseño */
+  display: block;
+}
 
 /* Estilos para las tarjetas de temperatura y humedad */
 .sensor-temp-hum {
@@ -69,6 +94,18 @@
 
 .sensor-temp-hum p:last-child {
     border-top: 3px solid #000000; /* Borde negro para el dióxido */
+}
+
+/* Estilos para el overlay de carga */
+.charts-loading {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6); /* semitransparente sobre las gráficas */
+  z-index: 10;
+  pointer-events: none; /* permite interacción si quieres debajo; cambia si no */
 }
 
 /* Para dispositivos móviles */
