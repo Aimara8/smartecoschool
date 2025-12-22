@@ -137,3 +137,18 @@ nav ul li {
         right: -200px;
     }
 }
+
+@media (min-width: 1353px) {
+    /* En pantallas grandes siempre mostrar los botones de idioma */
+    .hide-lang-buttons,
+    .show-lang-buttons {
+        position: static;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        z-index: auto;
+        margin-left: 5px;
+    }
+}
