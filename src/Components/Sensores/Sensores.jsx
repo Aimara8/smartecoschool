@@ -11,18 +11,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sensores.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Loading from "../Loading/Loading";
 
 Chart.register(...registerables);
 
 const GraficasSensores = () => {
+
+  const { t } = useTranslation();
+
   const aguaChartRef = useRef(null);
   const luzChartRef = useRef(null);
   const aguaCanvasRef = useRef(null);
   const luzCanvasRef = useRef(null);
-  const [temperatura, setTemperatura] = useState({ medidas: "Cargando..." });
-  const [humedad, setHumedad] = useState({ medidas: "Cargando..." });
-  const [dioxido, setDioxido] = useState({ medidas: "Cargando..." });
+  const [temperatura, setTemperatura] = useState({ medidas: t('loading.message') + '...' });
+  const [humedad, setHumedad] = useState({ medidas: t('loading.message') + '...' });
+  const [dioxido, setDioxido] = useState({ medidas: t('loading.message') + '...' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -54,7 +58,7 @@ const GraficasSensores = () => {
             data: {
               labels: labelsAgua,
               datasets: [{
-                label: "Agua (m³)",
+                label: t("sensors.water") + " (m³)",
                 data: dataAgua,
                 borderColor: "blue",
                 backgroundColor: "rgba(0, 0, 255, 0.2)",
@@ -65,7 +69,7 @@ const GraficasSensores = () => {
             options: {
               responsive: true,
               plugins: {
-                title: { display: true, text: "Consumo de Agua" },
+                title: { display: true, text: t("sensors.waterConsumption") },
               },
             },
           });
@@ -80,7 +84,7 @@ const GraficasSensores = () => {
             data: {
               labels: labelsLuz,
               datasets: [{
-                label: "Luz (kWh)",
+                label: t("sensors.light") + " (kWh)",
                 data: dataLuz,
                 borderColor: "orange",
                 backgroundColor: "rgba(255, 165, 0, 0.2)",
@@ -91,7 +95,7 @@ const GraficasSensores = () => {
             options: {
               responsive: true,
               plugins: {
-                title: { display: true, text: "Intensidad de Luz" },
+                title: { display: true, text: t("sensors.lightConsumption") },
               },
             },
           });
@@ -129,11 +133,11 @@ const GraficasSensores = () => {
         <div className="sensor-agua">
           {loading && (
             <div className="chart-loading">
-              <Loading message="Cargando gráfica de agua..." />
+              <Loading />
             </div>
           )}
           <h2>
-            <FontAwesomeIcon icon={faTint} /> Gráfica de Agua
+            <FontAwesomeIcon icon={faTint} /> {t("sensors.waterGraph")}
           </h2>
           <canvas ref={aguaCanvasRef} />
         </div>
@@ -141,11 +145,11 @@ const GraficasSensores = () => {
         <div className="sensor-luz">
           {loading && (
             <div className="chart-loading">
-              <Loading message="Cargando gráfica de luz..." />
+              <Loading />
             </div>
           )}
           <h2>
-            <FontAwesomeIcon icon={faLightbulb} /> Gráfica de Luz
+            <FontAwesomeIcon icon={faLightbulb} /> {t("sensors.lightGraph")}
           </h2>
           <canvas ref={luzCanvasRef} />
         </div>
@@ -158,7 +162,7 @@ const GraficasSensores = () => {
           </p>
         ) : (
           <p>
-            <FontAwesomeIcon icon={faTemperatureHigh} /> Temperatura:{" "}
+            <FontAwesomeIcon icon={faTemperatureHigh} /> {t("sensors.temperature")}:{" "}
             {temperatura.medidas} Cº
           </p>
         )}
@@ -168,13 +172,13 @@ const GraficasSensores = () => {
           </p>
         ) : (
           <p>
-            <FontAwesomeIcon icon={faTint} /> Humedad: {humedad.medidas} %
+            <FontAwesomeIcon icon={faTint} /> {t("sensors.humidity")}: {humedad.medidas} %
           </p>
         )}
         {!dioxido || dioxido.medidas === undefined ? (
           <p><FontAwesomeIcon icon={faLeaf} /> No se detectó Co2</p>
         ) : (
-          <p><FontAwesomeIcon icon={faLeaf} /> Co2: {dioxido.medidas} ppm</p>
+          <p><FontAwesomeIcon icon={faLeaf} /> {t("sensors.co2")}: {dioxido.medidas} ppm</p>
         )}
       </div>
     </div>

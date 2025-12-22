@@ -106,5 +106,16 @@
   "participants" : "Participantes",
   "loading": {
     "message": "Cargando"
+  },
+  "sensors": {
+    "waterGraph": "Gráfica de Agua",
+    "lightGraph": "Gráfica de Luz",
+    "water": "Agua",
+    "light": "Luz",
+    "waterConsumption": "Consumo de Agua",
+    "lightConsumption": "Consumo de Luz",
+    "temperature": "Temperatura",
+    "humidity": "Humedad",
+    "co2": "Co2"
   }
 }
